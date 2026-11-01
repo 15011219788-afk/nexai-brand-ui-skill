@@ -27,6 +27,16 @@
     "assets/project-follow-room.png",
     "assets/certification-career-proof-desktop.jpg"
   ],
+  "examples": [
+    "examples/index.html",
+    "examples/shared.css",
+    "examples/01-home.html",
+    "examples/02-project-detail.html",
+    "examples/03-ai-passport.html",
+    "examples/04-community.html",
+    "examples/05-certification.html",
+    "examples/06-follow-room.html"
+  ],
   "brand": {
     "primary": "#7417FF",
     "accent": "#FE6702",

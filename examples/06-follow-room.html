@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>示例 · 项目跟练舱 · NexAI</title>
+  <link rel="stylesheet" href="./shared.css" />
+  <style>
+    body { background: #fff; }
+    .room {
+      display: grid;
+      grid-template-columns: 340px minmax(0, 1fr) 56px;
+      height: 100vh;
+      min-height: 640px;
+    }
+    .left, .center, .right {
+      min-height: 0;
+      border-right: 1px solid var(--nx-line);
+    }
+    .right { border-right: 0; border-left: 1px solid var(--nx-line); }
+    .topbar {
+      height: 56px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--nx-line);
+      background: #fff;
+    }
+    .topbar strong { font-size: 14px; }
+    .topbar span { color: var(--nx-muted); font-size: 12px; }
+    .left {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      overflow: auto;
+    }
+    .progress {
+      margin: 14px;
+      padding: 14px;
+      border: 1px solid var(--nx-line);
+      border-radius: var(--nx-radius-card);
+      background: var(--nx-surface);
+    }
+    .progress-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 13px;
+      font-weight: 650;
+    }
+    .track {
+      height: 6px;
+      border-radius: 999px;
+      background: var(--nx-surface-2);
+      overflow: hidden;
+    }
+    .track i {
+      display: block;
+      width: 12.5%;
+      height: 100%;
+      background: var(--nx-purple);
+    }
+    .dir {
+      margin: 0 14px 14px;
+      padding: 0;
+      list-style: none;
+      border: 1px solid var(--nx-line);
+      border-radius: var(--nx-radius-card);
+      overflow: hidden;
+    }
+    .dir li {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--nx-line);
+      font-size: 12px;
+      color: var(--nx-muted);
+    }
+    .dir li:last-child { border-bottom: 0; }
+    .dir li.current {
+      color: var(--nx-purple);
+      background: var(--nx-purple-soft);
+      font-weight: 650;
+    }
+    .video {
+      margin: 0 14px 14px;
+      border: 1px solid var(--nx-line);
+      border-radius: var(--nx-radius-card);
+      overflow: hidden;
+    }
+    .video-thumb {
+      height: 150px;
+      background: #1a2740;
+      display: grid;
+      place-items: center;
+      color: #fff;
+    }
+    .video-thumb .play {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(116,23,255,.9);
+    }
+    .video-copy { padding: 12px; }
+    .video-copy h2 { margin: 0 0 6px; font-size: 14px; }
+    .video-copy p {
+      margin: 0;
+      color: var(--nx-muted);
+      font-size: 12px;
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .task {
+      margin: 0 14px 14px;
+      padding: 14px;
+      border: 1px solid var(--nx-line);
+      border-radius: var(--nx-radius-card);
+    }
+    .task h3 { margin: 0 0 8px; font-size: 14px; }
+    .task p { margin: 0 0 12px; color: var(--nx-muted); font-size: 12px; line-height: 1.55; }
+    .task label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 12px;
+      font-weight: 650;
+    }
+    .task textarea {
+      width: 100%;
+      min-height: 88px;
+      padding: 10px 12px;
+      border: 1px solid var(--nx-line);
+      border-radius: 12px;
+      resize: vertical;
+      background: #fff;
+    }
+    .task textarea:focus {
+      border-color: var(--nx-purple);
+      outline: 3px solid var(--nx-focus);
+      outline-offset: 1px;
+    }
+    .left-actions {
+      margin-top: auto;
+      padding: 14px;
+      border-top: 1px solid var(--nx-line);
+      display: grid;
+      gap: 8px;
+    }
+    .center {
+      display: flex;
+      flex-direction: column;
+      background: var(--nx-surface);
+    }
+    .canvas {
+      flex: 1;
+      margin: 16px;
+      border: 1px dashed var(--nx-line-strong);
+      border-radius: var(--nx-radius-panel);
+      background: #fff;
+      display: grid;
+      place-items: center;
+      color: var(--nx-subtle);
+      font-size: 13px;
+      text-align: center;
+      padding: 24px;
+      line-height: 1.6;
+    }
+    .composer {
+      margin: 0 16px 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 8px;
+      border: 1px solid var(--nx-line);
+      border-radius: var(--nx-radius-pill);
+      background: #fff;
+    }
+    .composer input {
+      height: 40px;
+      border: 0;
+      padding: 0 12px;
+      background: transparent;
+      outline: none;
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 0;
+      background: #fff;
+    }
+    .rail-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--nx-line);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--nx-muted);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+    .rail-btn.active {
+      color: var(--nx-purple);
+      background: var(--nx-purple-soft);
+      border-color: transparent;
+    }
+    .rail-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    @media (max-width: 1080px) {
+      .room {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      .left, .center, .right { border: 0; }
+      .right {
+        flex-direction: row;
+        justify-content: center;
+        border-top: 1px solid var(--nx-line);
+      }
+      .canvas { min-height: 280px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="room">
+    <aside class="left" aria-label="学习与任务轨">
+      <div class="topbar">
+        <div>
+          <strong>Vibe Coding 品牌官网</strong>
+          <div><span>全屏跟练舱 · 标准壳层外</span></div>
+        </div>
+        <a class="btn btn-ghost btn-sm" href="./02-project-detail.html">退出</a>
+      </div>
+
+      <div class="progress">
+        <div class="progress-head">
+          <span>项目进度</span>
+          <span>0 / 8</span>
+        </div>
+        <div class="track" aria-hidden="true"><i></i></div>
+      </div>
+
+      <ul class="dir" aria-label="项目目录">
+        <li class="current">1. 写清品牌与官网目标</li>
+        <li>2. 梳理首屏信息架构</li>
+        <li>3. 生成可运行落地页</li>
+        <li>4. 响应式与可访问性自检</li>
+      </ul>
+
+      <div class="video">
+        <div class="video-thumb"><div class="play" aria-hidden="true">▶</div></div>
+        <div class="video-copy">
+          <h2>读懂品牌需求</h2>
+          <p>动手写代码前，先把 NexAI 服务是什么、用户应记住什么、看完首屏要做什么，写成清晰约束。默认展示约 100 字，可展开全文。</p>
+        </div>
+      </div>
+
+      <div class="task">
+        <h3>当前任务</h3>
+        <p>明确品牌是谁、提供什么、传达什么，以及官网要推动用户完成的动作。</p>
+        <label for="task-note">完成说明</label>
+        <textarea id="task-note" placeholder="用几句话写下你的品牌目标与约束…"></textarea>
+      </div>
+
+      <div class="left-actions">
+        <button class="btn btn-primary btn-block" type="button">让 AI 开始实操</button>
+        <button class="btn btn-secondary btn-block" type="button">完成并继续</button>
+      </div>
+    </aside>
+
+    <section class="center" aria-label="操作画布">
+      <div class="topbar">
+        <div>
+          <strong>项目实操</strong>
+          <div><span>brand-brief.md</span></div>
+        </div>
+        <span class="meta">操作前画布保持空白</span>
+      </div>
+      <div class="canvas">
+        还没有操作结果。<br />
+        在左侧完成当前任务说明后，点击「让 AI 开始实操」。
+      </div>
+      <div class="composer">
+        <input type="text" placeholder="描述要在项目中完成的操作…" aria-label="操作输入" />
+        <button class="btn btn-primary btn-sm" type="button">发送</button>
+      </div>
+    </section>
+
+    <aside class="right" aria-label="产出轨">
+      <button class="rail-btn active" type="button" aria-label="预览" title="预览">
+        <svg viewBox="0 0 24 24"><path d="M2.5 12s3.5-6.5 9.5-6.5S21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.5"/></svg>
+      </button>
+      <button class="rail-btn" type="button" aria-label="文件" title="文件">
+        <svg viewBox="0 0 24 24"><path d="M4 6.5h6l2 2H20v9.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18z"/></svg>
+      </button>
+      <button class="rail-btn" type="button" aria-label="证据" title="证据">
+        <svg viewBox="0 0 24 24"><path d="M8 4.5h8v15l-4-2-4 2z"/></svg>
+      </button>
+    </aside>
+  </div>
+</body>
+</html>

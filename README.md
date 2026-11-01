@@ -25,6 +25,7 @@
 - `references/`：详细设计、内容与验收规则。
 - `templates/screen-brief.md`：跨角色需求模板。
 - `assets/`：官方 Logo 与代表性页面截图。
+- `examples/`：按页面模式生成的可浏览 UI 样式示例（从 `examples/index.html` 进入）。
 
 ## 版本
 
