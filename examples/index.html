@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NexAI UI 样式示例</title>
+  <link rel="stylesheet" href="./shared.css" />
+  <style>
+    body { background: var(--nx-surface); }
+    .wrap {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 28px 22px 64px;
+    }
+    .intro {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 22px;
+      align-items: end;
+      margin: 18px 0 28px;
+    }
+    .intro h2 {
+      margin: 0 0 10px;
+      font-family: var(--nx-font-display);
+      font-size: clamp(28px, 4vw, 40px);
+      letter-spacing: -.045em;
+      line-height: 1.1;
+    }
+    .intro p {
+      margin: 0;
+      max-width: 560px;
+      color: var(--nx-muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .loop {
+      padding: 16px 18px;
+      border-left: 3px solid var(--nx-purple);
+      border-radius: 0 14px 14px 0;
+      background: var(--nx-purple-tint);
+      color: #4f24a4;
+      font-size: 12px;
+      line-height: 1.65;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .tile {
+      display: grid;
+      grid-template-rows: 168px auto;
+      overflow: hidden;
+      border: 1px solid var(--nx-line);
+      border-radius: var(--nx-radius-panel);
+      background: #fff;
+      transition: border-color .16s ease, transform .1s ease;
+    }
+    .tile:hover { border-color: rgba(116,23,255,.35); }
+    .tile:active { transform: scale(.97); }
+    .preview {
+      position: relative;
+      padding: 18px;
+      color: #fff;
+      overflow: hidden;
+    }
+    .preview.home { background: var(--nx-dark-navy); }
+    .preview.project { background: #0b1422; }
+    .preview.passport {
+      background: var(--nx-purple-tint);
+      color: var(--nx-ink);
+    }
+    .preview.community {
+      background: var(--nx-surface-parchment);
+      color: var(--nx-ink);
+    }
+    .preview.cert { background: var(--nx-dark-navy); }
+    .preview.room {
+      background: #f6f6f8;
+      color: var(--nx-ink);
+    }
+    .preview .label {
+      display: inline-flex;
+      min-height: 24px;
+      padding: 0 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(255,255,255,.14);
+    }
+    .preview.passport .label,
+    .preview.community .label,
+    .preview.room .label {
+      color: var(--nx-purple);
+      background: var(--nx-purple-soft);
+    }
+    .preview h3 {
+      margin: 14px 0 6px;
+      font-size: 22px;
+      letter-spacing: -.03em;
+      line-height: 1.15;
+    }
+    .preview p {
+      margin: 0;
+      max-width: 280px;
+      opacity: .72;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    .mini {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      width: 42%;
+      height: 72px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      padding: 10px;
+      display: grid;
+      gap: 6px;
+    }
+    .preview.passport .mini,
+    .preview.community .mini,
+    .preview.room .mini {
+      border-color: var(--nx-line);
+      background: #fff;
+    }
+    .mini span {
+      display: block;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.18);
+    }
+    .preview.passport .mini span,
+    .preview.community .mini span,
+    .preview.room .mini span { background: var(--nx-surface-2); }
+    .mini span:first-child { width: 40%; background: rgba(116,23,255,.7); }
+    .body { padding: 16px 18px 18px; }
+    .body h4 { margin: 0 0 6px; font-size: 15px; }
+    .body p { margin: 0 0 14px; color: var(--nx-muted); font-size: 13px; line-height: 1.55; }
+    .tokens {
+      margin-top: 34px;
+      padding: 22px;
+      border: 1px solid var(--nx-line);
+      border-radius: var(--nx-radius-panel);
+      background: #fff;
+    }
+    .tokens h3 { margin: 0 0 14px; font-size: 18px; }
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+    }
+    .swatch {
+      border: 1px solid var(--nx-line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .swatch i { display: block; height: 56px; background: var(--c); }
+    .swatch b, .swatch code {
+      display: block;
+      padding: 0 10px;
+      font-size: 11px;
+    }
+    .swatch b { padding-top: 10px; }
+    .swatch code { padding-bottom: 10px; color: var(--nx-muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    @media (max-width: 900px) {
+      .intro, .grid, .swatches { grid-template-columns: 1fr; }
+      .gallery-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="gallery-top">
+    <div class="brand-lockup">
+      <img src="../assets/nexai-ai-logo.svg" alt="NexAI" />
+      <div>
+        <h1>品牌 UI 样式示例</h1>
+        <p>基于 nexai-brand-ui skill · 页面模式演示</p>
+      </div>
+    </div>
+    <nav class="gallery-nav" aria-label="快速跳转">
+      <a class="pill active" href="#examples">6 个页面</a>
+      <a class="pill" href="../NexAI-品牌UI规范.html">打开完整规范</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <section class="intro">
+      <div>
+        <h2>同一套产品语言，六种页面拓扑</h2>
+        <p>这些示例复用官方 token、组件语法与内容信任边界，用来对照「首页聚合 / 项目 / 护照 / 社区 / 认证 / 跟练舱」应如何落地，而不是另起一套视觉。</p>
+      </div>
+      <div class="loop">
+        真实任务 → 可检查交付物 → 过程证据 → 反馈 / 人工复核 → 我的 AI 护照 → 项目或岗位机会
+      </div>
+    </section>
+
+    <section id="examples" class="grid" aria-label="示例列表">
+      <a class="tile" href="./01-home.html">
+        <div class="preview home">
+          <span class="label">Home aggregation</span>
+          <h3>首页聚合</h3>
+          <p>Banner → AI护照 → 项目 → 活动 → 认证 → 机会</p>
+          <div class="mini" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+        <div class="body">
+          <h4>01 · 首页</h4>
+          <p>聚合而非落地页长卷；每段一个信息与一个安静入口。</p>
+          <span class="quiet-link">打开示例 →</span>
+        </div>
+      </a>
+
+      <a class="tile" href="./02-project-detail.html">
+        <div class="preview project">
+          <span class="label">Project detail</span>
+          <h3>项目详情</h3>
+          <p>深色沉浸 Hero +  Sticky 摘要卡 + 开始实战</p>
+          <div class="mini" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+        <div class="body">
+          <h4>02 · 项目详情</h4>
+          <p>把课程语言转成任务、交付物、证据、复核与机会语义。</p>
+          <span class="quiet-link">打开示例 →</span>
+        </div>
+      </a>
+
+      <a class="tile" href="./03-ai-passport.html">
+        <div class="preview passport">
+          <span class="label">AI Passport</span>
+          <h3>我的 AI 护照</h3>
+          <p>14px 间距看板 + 能力卡 + 小奈伙伴</p>
+          <div class="mini" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+        <div class="body">
+          <h4>03 · AI 护照</h4>
+          <p>证据优先；区分平台复核与自评材料，不把能力快测当证书。</p>
+          <span class="quiet-link">打开示例 →</span>
+        </div>
+      </a>
+
+      <a class="tile" href="./04-community.html">
+        <div class="preview community">
+          <span class="label">Community feed</span>
+          <h3>社区信息流</h3>
+          <p>羊皮纸灰底 + 双栏 + 胶囊互动</p>
+          <div class="mini" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+        <div class="body">
+          <h4>04 · 社区</h4>
+          <p>聚焦推荐/关注；验证证据用克制信任标签，不用夸张徽章。</p>
+          <span class="quiet-link">打开示例 →</span>
+        </div>
+      </a>
+
+      <a class="tile" href="./05-certification.html">
+        <div class="preview cert">
+          <span class="label">Career-proof</span>
+          <h3>专业认证</h3>
+          <p>结果导向 Hero → 证明条 → 锚点章节</p>
+          <div class="mini" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+        <div class="body">
+          <h4>05 · 专业认证</h4>
+          <p>明确人工评审与产出物；不宣称学位或就业保证。</p>
+          <span class="quiet-link">打开示例 →</span>
+        </div>
+      </a>
+
+      <a class="tile" href="./06-follow-room.html">
+        <div class="preview room">
+          <span class="label">Follow room</span>
+          <h3>项目跟练舱</h3>
+          <p>左任务轨 · 中操作画布 · 右折叠产出</p>
+          <div class="mini" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+        <div class="body">
+          <h4>06 · 跟练舱</h4>
+          <p>全屏工作台；操作前中栏保持空白，证据轨默认收起。</p>
+          <span class="quiet-link">打开示例 →</span>
+        </div>
+      </a>
+    </section>
+
+    <section class="tokens" aria-label="关键 token">
+      <h3>示例复用的关键色板</h3>
+      <div class="swatches">
+        <div class="swatch"><i style="--c:#7417ff"></i><b>Purple</b><code>#7417FF</code></div>
+        <div class="swatch"><i style="--c:#f1eaff"></i><b>Purple soft</b><code>#F1EAFF</code></div>
+        <div class="swatch"><i style="--c:#f26322"></i><b>Orange</b><code>#F26322</code></div>
+        <div class="swatch"><i style="--c:#081425"></i><b>Dark navy</b><code>#081425</code></div>
+        <div class="swatch"><i style="--c:#f6f6f8"></i><b>Surface</b><code>#F6F6F8</code></div>
+        <div class="swatch"><i style="--c:#f4f2ee"></i><b>Parchment</b><code>#F4F2EE</code></div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

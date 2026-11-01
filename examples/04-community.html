@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>示例 · 社区信息流 · NexAI</title>
+  <link rel="stylesheet" href="./shared.css" />
+  <style>
+    .main { background: var(--nx-surface-parchment); }
+    .page {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 18px;
+      align-items: start;
+    }
+    .tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .tab {
+      min-height: 38px;
+      padding: 0 14px;
+      border: 0;
+      border-radius: var(--nx-radius-pill);
+      background: transparent;
+      color: var(--nx-muted);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .tab[aria-selected="true"] {
+      color: var(--nx-purple);
+      background: var(--nx-purple-soft);
+    }
+    .filters {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin-bottom: 16px;
+      padding-bottom: 2px;
+    }
+    .feed { display: grid; gap: 12px; }
+    .post {
+      padding: 18px;
+      border: 1px solid var(--nx-line);
+      border-radius: var(--nx-radius-card-lg);
+      background: #fff;
+    }
+    .post-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--nx-surface-2);
+    }
+    .avatar.a { background: #d9ccff; }
+    .avatar.b { background: #cfe8de; }
+    .avatar.c { background: #f3d9c8; }
+    .post-head strong { display: block; font-size: 14px; }
+    .post-head span { color: var(--nx-muted); font-size: 12px; }
+    .post h2 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      letter-spacing: -.02em;
+      line-height: 1.35;
+    }
+    .post p {
+      margin: 0 0 14px;
+      color: var(--nx-ink);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .trust {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 14px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--nx-line);
+      color: var(--nx-muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .trust i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--nx-success);
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .action {
+      min-height: 36px;
+      padding: 0 14px;
+      border: 1px solid var(--nx-line-strong);
+      border-radius: var(--nx-radius-pill);
+      background: #fff;
+      color: var(--nx-ink);
+      font-size: 13px;
+      font-weight: 560;
+      cursor: pointer;
+    }
+    .action:hover { border-color: rgba(116,23,255,.35); color: var(--nx-purple); }
+    .rail {
+      position: sticky;
+      top: 20px;
+      display: grid;
+      gap: 12px;
+    }
+    .rail-card {
+      padding: 16px;
+      border: 1px solid var(--nx-line);
+      border-radius: var(--nx-radius-card);
+      background: #fff;
+    }
+    .rail-card h3 { margin: 0 0 12px; font-size: 15px; }
+    .rail-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .rail-card li {
+      display: grid;
+      gap: 2px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--nx-line);
+      font-size: 13px;
+    }
+    .rail-card li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .rail-card .meta { color: var(--nx-muted); font-size: 12px; }
+    @media (max-width: 1080px) {
+      .page { grid-template-columns: 1fr; }
+      .rail { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <div class="mobile-bar">
+    <button class="icon-btn" aria-label="打开菜单"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <img src="../assets/nexai-ai-logo.svg" alt="NexAI" />
+    <button class="icon-btn" aria-label="账户"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 19.5c1.8-3.2 4.2-4.8 7-4.8s5.2 1.6 7 4.8"/></svg></button>
+  </div>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand">
+        <img src="../assets/nexai-ai-logo.svg" alt="NexAI" />
+        <span class="beta">测试版</span>
+      </div>
+      <nav>
+        <a class="nav-item" href="./01-home.html"><svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z"/></svg>首页</a>
+        <a class="nav-item" href="./03-ai-passport.html"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>AI护照</a>
+        <a class="nav-item" href="./02-project-detail.html"><svg viewBox="0 0 24 24"><path d="M4 7.5h16v11a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5z"/><path d="M8 7.5V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1.5"/></svg>项目</a>
+        <a class="nav-item" href="#"><svg viewBox="0 0 24 24"><path d="M7 4.5h10v15l-5-2.5-5 2.5z"/></svg>活动</a>
+        <a class="nav-item active" href="#"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="3"/><circle cx="16" cy="10.5" r="2.5"/><path d="M4.5 18.5c.8-2.4 2.6-3.7 4.5-3.7s3.7 1.3 4.5 3.7M13.5 18.5c.5-1.5 1.6-2.3 2.8-2.3"/></svg>社区</a>
+        <a class="nav-item" href="#"><svg viewBox="0 0 24 24"><path d="M12 3.5 14.2 9H20l-4.5 3.4L17.3 18 12 14.8 6.7 18l1.8-5.6L4 9h5.8z"/></svg>机会</a>
+        <a class="nav-item" href="./05-certification.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 20l5-2.2L17 20l-1.5-6.5"/></svg>专业认证</a>
+      </nav>
+      <div class="sidebar-foot">
+        <p class="tagline">Empower Every AI Builder<br />成就每一位 AI 创造者</p>
+        <button class="btn btn-primary btn-block btn-sm">登录</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="page">
+          <section>
+            <div class="tabs" role="tablist" aria-label="信息流类型">
+              <button class="tab" role="tab" aria-selected="true">推荐</button>
+              <button class="tab" role="tab" aria-selected="false">关注</button>
+            </div>
+            <div class="filters" aria-label="话题筛选">
+              <button class="pill active" type="button">全部</button>
+              <button class="pill" type="button">项目复盘</button>
+              <button class="pill" type="button">证据互评</button>
+              <button class="pill" type="button">Agent</button>
+              <button class="pill" type="button">求职准备</button>
+            </div>
+
+            <div class="feed">
+              <article class="post">
+                <div class="post-head">
+                  <div class="avatar a" aria-hidden="true"></div>
+                  <div>
+                    <strong>陈予安</strong>
+                    <span>2 小时前 · 项目复盘</span>
+                  </div>
+                </div>
+                <h2>把「能跑」升级成「可复核」：电影票务智能体的证据包怎么写</h2>
+                <p>这次我把对话日志、失败用例和人工抽检意见一起提交。评审反馈最关键的是：不要只贴最终截图，要说明哪些步骤是 AI 生成、哪些是我确认过的。</p>
+                <div class="trust"><i></i>已关联平台复核证据</div>
+                <div class="actions">
+                  <button class="action" type="button">赞 128</button>
+                  <button class="action" type="button">评论 36</button>
+                  <button class="action" type="button">收藏</button>
+                  <button class="action" type="button">微笑</button>
+                </div>
+              </article>
+
+              <article class="post">
+                <div class="post-head">
+                  <div class="avatar b" aria-hidden="true"></div>
+                  <div>
+                    <strong>何清</strong>
+                    <span>昨天 · Agent</span>
+                  </div>
+                </div>
+                <h2>小奈给的能力快测结果，我当成建议而不是证书</h2>
+                <p>快测帮我发现 Prompt 约束写得太松。真正进入护照的，还是后面那个带人工复核的项目证据卡。</p>
+                <div class="actions">
+                  <button class="action" type="button">赞 64</button>
+                  <button class="action" type="button">评论 12</button>
+                  <button class="action" type="button">收藏</button>
+                  <button class="action" type="button">微笑</button>
+                </div>
+              </article>
+
+              <article class="post">
+                <div class="post-head">
+                  <div class="avatar c" aria-hidden="true"></div>
+                  <div>
+                    <strong>周岚</strong>
+                    <span>3 天前 · 求职准备</span>
+                  </div>
+                </div>
+                <h2>投实习时我把 AI 护照截图和 GitHub 证据并排展示</h2>
+                <p>HR 更关心交付物能不能打开、评审人是谁。薪资区间我按岗位页标注的来源日期说明了「市场数据会变化」。</p>
+                <div class="trust"><i></i>含人工评审结论引用</div>
+                <div class="actions">
+                  <button class="action" type="button">赞 210</button>
+                  <button class="action" type="button">评论 41</button>
+                  <button class="action" type="button">收藏</button>
+                  <button class="action" type="button">微笑</button>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <aside class="rail" aria-label="推荐栏">
+            <div class="rail-card">
+              <h3>本周值得跟进</h3>
+              <ul>
+                <li>
+                  <strong>证据互评会</strong>
+                  <span class="meta">周六 20:00 · 不替代专家评审</span>
+                </li>
+                <li>
+                  <strong>Vibe Coding 公开课</strong>
+                  <span class="meta">把品牌约束写成可执行 brief</span>
+                </li>
+                <li>
+                  <strong>L3 认证答疑</strong>
+                  <span class="meta">说明人工复核与通过标准</span>
+                </li>
+              </ul>
+            </div>
+            <div class="rail-card">
+              <h3>推荐创作者</h3>
+              <ul>
+                <li><strong>林夏</strong><span class="meta">L2 · 7 项项目证据</span></li>
+                <li><strong>陈予安</strong><span class="meta">Agent 方向 · 常写复盘</span></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

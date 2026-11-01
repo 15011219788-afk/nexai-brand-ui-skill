@@ -155,4 +155,5 @@ Stop and request direction when:
 - `references/qa-checklist.md` — shared acceptance gate.
 - `templates/screen-brief.md` — PM/design/engineering kickoff template.
 - `assets/` — official logo and representative validated screenshots.
+- `examples/` — browsable UI style examples for the packaged page patterns; start at `examples/index.html`.
 

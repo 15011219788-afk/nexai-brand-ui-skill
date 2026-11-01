@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>示例 · 专业认证 · NexAI</title>
+  <link rel="stylesheet" href="./shared.css" />
+  <style>
+    .main-inner { width: min(1380px, 100%); padding-top: 20px; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      min-height: 420px;
+      overflow: hidden;
+      border-radius: var(--nx-radius-feature);
+      background: var(--nx-dark-navy);
+      color: #fff;
+    }
+    .hero-copy { padding: 42px 40px; display: flex; flex-direction: column; justify-content: center; }
+    .crumb { color: rgba(255,255,255,.55); font-size: 12px; margin-bottom: 14px; }
+    .hero h1 {
+      margin: 12px 0 14px;
+      font-family: var(--nx-font-display);
+      font-size: clamp(32px, 4vw, 46px);
+      font-weight: 720;
+      letter-spacing: -.045em;
+      line-height: 1.08;
+      max-width: 560px;
+    }
+    .hero p {
+      margin: 0 0 24px;
+      max-width: 520px;
+      color: rgba(255,255,255,.68);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .audience { color: rgba(255,255,255,.5); font-size: 12px; line-height: 1.5; }
+    .hero-visual {
+      background: #122033;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+    }
+    .photo {
+      width: min(100%, 420px);
+      aspect-ratio: 4/3;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: #2a3b55;
+      display: grid;
+      place-items: end start;
+      padding: 18px;
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+    }
+    .proof {
+      margin-top: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: #fff;
+      border: 1px solid var(--nx-line);
+      border-top: 0;
+      border-radius: 0 0 22px 22px;
+      overflow: hidden;
+    }
+    .proof div {
+      padding: 22px 20px;
+      border-left: 1px solid var(--nx-line);
+    }
+    .proof div:first-child { border-left: 0; }
+    .proof b { display: block; color: var(--nx-ink); font-size: 14px; margin-bottom: 6px; }
+    .proof span { color: var(--nx-muted); font-size: 12px; line-height: 1.55; }
+    .anchors {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      margin: 18px 0 28px;
+      padding: 8px;
+      border: 1px solid var(--nx-line);
+      border-radius: var(--nx-radius-pill);
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(12px);
+    }
+    .anchors a {
+      min-height: 36px;
+      padding: 0 14px;
+      border-radius: var(--nx-radius-pill);
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      color: var(--nx-muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .anchors a:hover, .anchors a.active {
+      color: var(--nx-purple);
+      background: var(--nx-purple-soft);
+    }
+    .block {
+      margin-bottom: 34px;
+      padding: 28px;
+      border: 1px solid var(--nx-line);
+      border-radius: var(--nx-radius-panel);
+      background: #fff;
+    }
+    .block h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      letter-spacing: -.03em;
+    }
+    .block > p {
+      margin: 0 0 18px;
+      color: var(--nx-muted);
+      font-size: 14px;
+      line-height: 1.65;
+      max-width: 720px;
+    }
+    .modules {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .modules article {
+      padding: 16px;
+      border: 1px solid var(--nx-line);
+      border-radius: 14px;
+      background: var(--nx-surface);
+    }
+    .modules h3 { margin: 0 0 6px; font-size: 15px; }
+    .modules p { margin: 0; color: var(--nx-muted); font-size: 13px; line-height: 1.55; }
+    .score {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .score div {
+      padding: 16px;
+      border-radius: 14px;
+      background: var(--nx-purple-tint);
+      border: 1px solid rgba(116,23,255,.12);
+    }
+    .score strong { display: block; font-size: 22px; color: var(--nx-purple); letter-spacing: -.03em; }
+    .score span { color: var(--nx-muted); font-size: 12px; }
+    .roles { display: grid; gap: 10px; }
+    .role {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--nx-line);
+      font-size: 14px;
+    }
+    .role:last-child { border-bottom: 0; }
+    .note {
+      margin-top: 12px;
+      color: var(--nx-muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    @media (max-width: 1080px) {
+      .hero, .proof, .modules, .score { grid-template-columns: 1fr; }
+      .proof div { border-left: 0; border-top: 1px solid var(--nx-line); }
+      .proof div:first-child { border-top: 0; }
+      .hero-copy { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="mobile-bar">
+    <button class="icon-btn" aria-label="打开菜单"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <img src="../assets/nexai-ai-logo.svg" alt="NexAI" />
+    <button class="icon-btn" aria-label="账户"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 19.5c1.8-3.2 4.2-4.8 7-4.8s5.2 1.6 7 4.8"/></svg></button>
+  </div>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand">
+        <img src="../assets/nexai-ai-logo.svg" alt="NexAI" />
+        <span class="beta">测试版</span>
+      </div>
+      <nav>
+        <a class="nav-item" href="./01-home.html"><svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z"/></svg>首页</a>
+        <a class="nav-item" href="./03-ai-passport.html"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>AI护照</a>
+        <a class="nav-item" href="./02-project-detail.html"><svg viewBox="0 0 24 24"><path d="M4 7.5h16v11a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5z"/><path d="M8 7.5V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1.5"/></svg>项目</a>
+        <a class="nav-item" href="#"><svg viewBox="0 0 24 24"><path d="M7 4.5h10v15l-5-2.5-5 2.5z"/></svg>活动</a>
+        <a class="nav-item" href="./04-community.html"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="3"/><circle cx="16" cy="10.5" r="2.5"/><path d="M4.5 18.5c.8-2.4 2.6-3.7 4.5-3.7s3.7 1.3 4.5 3.7M13.5 18.5c.5-1.5 1.6-2.3 2.8-2.3"/></svg>社区</a>
+        <a class="nav-item" href="#"><svg viewBox="0 0 24 24"><path d="M12 3.5 14.2 9H20l-4.5 3.4L17.3 18 12 14.8 6.7 18l1.8-5.6L4 9h5.8z"/></svg>机会</a>
+        <a class="nav-item active" href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 20l5-2.2L17 20l-1.5-6.5"/></svg>专业认证</a>
+      </nav>
+      <div class="sidebar-foot">
+        <p class="tagline">Empower Every AI Builder<br />成就每一位 AI 创造者</p>
+        <button class="btn btn-primary btn-block btn-sm">登录</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="main-inner">
+        <section class="hero">
+          <div class="hero-copy">
+            <div class="crumb">NexAI 专业认证 &gt; L3 AI 应用开发</div>
+            <span class="badge badge-purple">职业能力认证 L3</span>
+            <h1>从会用 AI，到独立交付可复核的 AI 应用</h1>
+            <p>通过真实项目学习，沉淀可追溯项目证据，并由具名专家完成人工评审。认证不是学位，也不承诺就业结果。</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary btn-rect" href="#modules">查看认证路径</a>
+              <button class="btn btn-dark-outline btn-rect" type="button">下载认证手册</button>
+            </div>
+            <div class="audience">面向 AI 开发、产品、解决方案与希望证明交付能力的建设者。</div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="photo">真实工作现场示意 · 非学位宣传图</div>
+          </div>
+        </section>
+
+        <div class="proof" aria-label="认证价值">
+          <div><b>L3 项目建构</b><span>复杂度递进，强调可复查交付。</span></div>
+          <div><b>真实项目交付</b><span>产出可运行应用与说明文档。</span></div>
+          <div><b>具名人工复核</b><span>专家反馈写入评审结论。</span></div>
+          <div><b>证据进入 AI 护照</b><span>能力证明可被后续机会引用。</span></div>
+        </div>
+
+        <nav class="anchors" aria-label="页面锚点">
+          <a class="active" href="#value">认证价值</a>
+          <a href="#experience">学习体验</a>
+          <a href="#modules">核心模块</a>
+          <a href="#project">项目实训</a>
+          <a href="#assess">考核认证</a>
+          <a href="#jobs">岗位关联</a>
+        </nav>
+
+        <section class="block" id="value">
+          <h2>认证价值</h2>
+          <p>把「学会」变成「能交付、能解释、能被复核」。正式结论必须经过人工评审路径。</p>
+          <div class="score">
+            <div><strong>50%</strong><span>项目答辩</span></div>
+            <div><strong>30%</strong><span>方案与工作文档</span></div>
+            <div><strong>20%</strong><span>在线知识测试 · 75 分通过</span></div>
+          </div>
+        </section>
+
+        <section class="block" id="experience">
+          <h2>学习体验</h2>
+          <p>课程学习 → 项目实训 → 理论考试 → 专家评审 → 获得认证。AI 可辅助预审，关键声明由你确认，最终由具名评审人负责。</p>
+        </section>
+
+        <section class="block" id="modules">
+          <h2>核心模块</h2>
+          <p>覆盖从认知到工程化落地的完整链路。</p>
+          <div class="modules">
+            <article>
+              <h3>AI 认知与 Prompt 工程</h3>
+              <p>约束表达、评测意识与失败复盘。</p>
+            </article>
+            <article>
+              <h3>VibeCoding 工程化实战</h3>
+              <p>把模糊需求转成可执行交付节奏。</p>
+            </article>
+            <article>
+              <h3>AI Agent 开发</h3>
+              <p>工具调用、状态管理与可观察性。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="block" id="project">
+          <h2>项目实训</h2>
+          <p>电影票务智能体 Demo + 项目说明文档。交付物需可运行、可复查，并保留过程证据。</p>
+          <a class="btn btn-secondary btn-sm" href="./02-project-detail.html">查看相关项目样式</a>
+        </section>
+
+        <section class="block" id="assess">
+          <h2>考核与认证产出</h2>
+          <p>通过后可获得：L3 岗位认证主书、方向专项能力证明、企业导师评审结论。这些材料可沉淀至我的 AI 护照。</p>
+        </section>
+
+        <section class="block" id="jobs">
+          <h2>岗位关联</h2>
+          <p>以下为能力映射参考，薪资与需求会随市场变化，不构成就业承诺。</p>
+          <div class="roles">
+            <div class="role"><strong>AI 应用工程师</strong><span class="meta">偏工程交付与评测</span></div>
+            <div class="role"><strong>AI 产品经理</strong><span class="meta">偏需求拆解与验收标准</span></div>
+            <div class="role"><strong>解决方案工程师</strong><span class="meta">偏场景落地与沟通证据</span></div>
+          </div>
+          <p class="note">市场数据来源与日期需在正式岗位页标注；本示例仅展示信息层级。</p>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
