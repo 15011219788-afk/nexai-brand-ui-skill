@@ -1,158 +1,142 @@
 ---
-name: nexai-brand-ui
-description: Apply the NexAI product and brand UI system to product planning, UX/UI design, frontend implementation, and design QA. Use for NexAI pages, components, prototypes, extensions, redesigns, reviews, and cross-team handoffs.
+name: naishi-brand
+description: 奈势AI（NexAI）品牌规范执行包。凡是为奈势AI / NexAI 做任何设计、文案或制作——网站、App、小程序、社交媒体与自媒体（X、小红书、公众号、视频号、抖音、B站、LinkedIn）、PPT、名片海报画册等对外物料、活动物料（背景板、易拉宝、展台、胸牌、礼品）、办公环境标识——在动手前使用本 Skill，并在交付前按清单自检。
 ---
 
-# NexAI Brand UI
+# 奈势AI 品牌规范（naishi-brand）
 
-Use this skill whenever a task changes or extends a NexAI / 奈势 AI product surface. It packages the current product language, interaction constraints, content trust boundaries, and acceptance criteria used by the NexAI prototype.
+本 Skill 把《奈势AI 品牌规范 v1.2》（品牌规范官网 https://brand.nexai.link + PDF 手册）压缩成可执行规则。色彩与 Logo 以品牌视觉板 SVG 原文件为唯一来源（用户确认）。目标不是让每件作品长得一样，而是让每件作品一眼就是奈势AI：**开放（Open）· 伙伴（Partner）· 创造（Create）**。
 
-The goal is not to make every screen look identical. The goal is to make every screen feel like the same product: restrained, evidence-driven, builder-oriented, trustworthy, and unmistakably NexAI.
+## 0. 固定信息（原文照用，不改写）
 
-## 1. Source-of-truth order
+| 项目 | 内容 |
+|---|---|
+| 中文品牌名 | **奈势AI**（无空格，AI 大写） |
+| 英文品牌名 | **NexAI**（不写 Nex AI / NEXAI / Nexai） |
+| 使命 | **成就每一位AI创造者**（英文 Empower Every AI Builder） |
+| 愿景 | **全球领先的下一代AI共创平台** |
+| 口号 | **一起热爱，一起成长！**（全角逗号与感叹号） |
+| 官网 | **nexai.link**；需可点击链接时 **https://nexai.link**（全小写、无 www、无结尾斜杠） |
+| 品牌个性 | **Open 开放 · Partner 伙伴 · Create 创造**（v1.2 起品牌个性与核心价值合并为这一组） |
+| 吉祥物 | 小奈；产品内 AI 伙伴称"小奈同学" |
 
-Resolve conflicts in this order:
+愿景与口号暂无官方英文，不要自行翻译；需要时向用户/品牌组确认。
 
-1. Explicit requirements in the current user/task request.
-2. Existing route, component behavior, and real content in the active NexAI repository.
-3. This skill and its packaged references.
-4. Saved screenshots under `assets/` as visual examples.
-5. External references such as Apple, Codex, DeepLearning.AI, X, Kimi, Udacity, or Watcha.
+## 1. 执行步骤
 
-External products may provide topology, interaction cues, or density references. They must never replace NexAI’s brand, content model, trust boundary, or naming.
+1. **识别触点**：确定是 数字产品 / 社媒 / PPT / 印刷物料 / 活动 / 办公 中的哪一类，打开下方对应 reference（只读需要的，但要读完整）。
+2. **先取官方素材，不重画**：Logo、小奈（标准形象 / 圆形头像 / 表情 / 动态表情 / 动作）、token、模板全部来自 `assets/`；仓库里没有的大文件（PPT 模板、PDF 手册、2400w Logo、素材包）从 https://brand.nexai.link/downloads.html 下载。若只拿到本文件（未克隆仓库），素材按 `https://raw.githubusercontent.com/15011219788-afk/nexai-brand-ui-skill/main/<路径>` 读取。
+3. **定版式骨架**：Logo 位置 → 一个标签 → 一个大标题 → 说明 → 小奈/图片 → 官网。先划"文字区"和"小奈区"，两区不重叠。一个版面只讲一件事、只有一个主行动。
+4. **按色彩语义上色**：白灰为空间，奈势紫 #6857E7 为身份与主行动，珊瑚橙 #FF604A 是唯一强调色（时间性/增长），墨黑 #262626 做文字和深色背景；Logo 渐变只在 Logo 里。
+5. **写文案**：动词 + 结果开头，平实具体；固定信息照抄第 0 节；数据标来源与日期。
+6. **按第 3 节清单自检**，列出你新增或假设的内容，交给用户确认。
 
-## 2. Required reading by task
+## 2. 硬规则（任何触点都适用）
 
-Read only the references needed for the task, but read each selected file completely.
+### Logo
+- 只用 `assets/logo/svg/` 中的官方文件：横版（首选）→ 竖版 → 图形标。
+- 三种官方色彩版本（视觉板）：彩色版（渐变标 + #262626 字）用白底，也可用 #F6F6F8 / #F1F0FD 浅底；反白版（渐变标 + 白字）用墨黑 #262626 底；全白版用奈势紫 #6857E7 底，也用于深紫 #3C237C 底与照片；单色黑 #000000 只用于黑白印刷。没有单色紫图形标。
+- 比例（视觉板实测）：字标高 ≈ 0.60 H，图形标与字标间距 ≈ 0.21 H（H = 图形标高）。
+- 安全空间 X = 图形标高 × 0.5；屏幕最小横版高 24px、图形标 16px；印刷最小横版宽 25mm、图形标 6mm。
+- 禁止：拉伸、旋转、改色、加特效/描边/投影、调换位置、用字体重打"奈势AI"、放在复杂图片或低对比背景、被小奈或其他元素压住、自拼英文字标、**放在菱形网格 / 像素底纹上**（v1.2）。Logo 背景只用干净纯色或平静照片区域。
 
-- Any visual or frontend work: `references/design-tokens.md` and `references/components.md`.
-- New page, route, or large redesign: also read `references/page-patterns.md`.
-- Certification, AI Passport, evidence, projects, jobs, community identity, or AI review: also read `references/content-and-trust.md`.
-- Implementation or review: also read `references/qa-checklist.md`.
-- Early product definition: start from `templates/screen-brief.md`.
+### 色彩（唯一来源：视觉板 SVG）
+- 紫色色阶：奈势紫 #6857E7（主行动/选中/身份）、深紫 #3C237C（悬停/按下、深色强调）、薰衣草紫 #BBBBFE（装饰、墨黑底强调文字）、雾紫 #F1F0FD（浅底面板）。
+- 强调：珊瑚橙 #FF604A，每版只出现一处。中性：墨黑 #262626、中灰 #6E6E73、浅灰 #F6F6F8、白 #FFFFFF。
+- 比例：白灰约 55%，墨黑约 20%，奈势紫 ≤ 10%，珊瑚橙 ≤ 5%。营销物料可用墨黑做主背景。
+- Logo 渐变 #7417FF 25% → #FE6702 只存在于 Logo 图形标内；#7417FF、#FE6702 不是独立品牌色（v1.0 的旧行动橙、旧深海蓝也已废弃），不得用于按钮、文字、底色或装饰图形。#F26322 不是品牌色，任何场景不用。
+- 功能色（成功 #08755F / 警示 #B45F06 / 危险 #B42318）仅限产品界面状态，视觉板未定义，不进营销物料。
+- 对比度 AA：奈势紫底白字 5.11 ✓；珊瑚橙底用墨黑字（白字 2.99 ✕）；墨黑底不用奈势紫文字（2.96 ✕），改用 #BBBBFE 或白色。
 
-## 3. NexAI experience principles
+### 字体（v1.2：MiSans）
+- 所有触点统一使用 **MiSans**（小米出品，可免费商用，下载 https://hyperos.mi.com/font，按小米 MiSans 许可协议使用）。
+- 字体栈：`MiSans, 'PingFang SC', 'Microsoft YaHei', sans-serif`；字重 Regular 400 / Medium 500 / Semibold 600 / Bold 700。
+- PPT 主题字体 MiSans，对外导出 PDF 内嵌字体；印刷与视频交付前转曲或嵌入。
+- 不再使用 v1.1 的思源黑体 / Inter / 微软雅黑分场景方案。
 
-Every meaningful product flow should reinforce this loop:
+### 辅助图形（v1.2：像素方块停用）
+- 像素方块 L 形 / 台阶形辅助图形、菱形网格（像素场）底纹**全部停用**，不出现在任何新物料中。
+- 像素元素只存在于 Logo 图形标与小奈犄角、袖标、口袋图案中；装饰用留白、纯色块、大标题、小奈。
 
-`真实任务 → 可检查交付物 → 过程证据 → 反馈 / 人工复核 → 我的 AI 护照 → 项目或岗位机会`
+### 小奈
+- 只用官方文件（`assets/mascot/`）：标准形象 `xiaonai-standard@*`、圆形头像 `avatar/`、12 枚表情 `expressions/`、12 枚动态表情 `animated/`（GIF）、8 个动作 `poses/`。
+- **圆形头像**：小奈居中、完整头部（犄角、双耳、下巴都在圆内）；只用 `avatar/xiaonai-avatar-circle-*` 或方形版交平台裁圆，不自己裁全身图。
+- **小奈不压文字，文字不压小奈**：文字区与小奈区分开（左右分栏 / 上下分区 / 独立卡片），间距 ≥ 1 个图形标高。
+- 表情贴纸配字在小奈下方；要换配字用 `expressions/no-text/`，把字排在小奈外。严肃场景不发表情。
+- 保留像素犄角、袖口像素 Logo、口袋像素图案、紫色卫衣、紫色眼睛；不拉伸、不改色、不镜像、不去色、不切掉犄角/头部、不放在奈势紫底或复杂照片上。
+- 不出现在认证结论、证书、薪资数据旁边暗示担保；不代言合作方。
+- 与 Logo 组合：间距 ≥ 2X，小奈高度 ≥ Logo 高度 3 倍；小奈单独出现时画面中仍需有"奈势AI"。
+- 表情与动作为 v1.2 延展设计稿，大规模商用前由品牌组验收；需要库里没有的新动作时停下来问。
 
-Apply these principles:
+### 文案与可信边界
+- 禁止：空泛口号（重塑未来/颠覆）、保证就业或薪资、"国际标准认证"、学位等价、把 AI 预审写成认证、把链接写成原创证明、假数据与假合作方。
+- 中英文之间加半角空格（品牌名与使命/愿景原文除外）；产品栏目沿用"我的 AI 护照 / AI护照、项目、社区、机会"。
 
-- Outcome before feature: explain what the user will make, prove, or unlock before listing tools.
-- Real work over passive consumption: courses and tutorials must lead to a project, artifact, decision, or demonstrable capability.
-- Evidence over decoration: verified evidence, contribution, review status, and project provenance are functional information, not badges for visual excitement.
-- AI collaboration with user control: AI assists, proposes, organizes, and pre-reviews; the user confirms consequential actions and high-trust claims.
-- Human accountability: formal certification and other high-stakes conclusions require named human review.
-- One primary action per region: preserve hierarchy and avoid CTA competition.
-- Progressive disclosure: keep default screens calm; expand directories, details, evidence, tools, and secondary panes only when needed.
-- Brand restraint: purple is a signal, not a background habit. Orange indicates urgency or growth momentum, not routine navigation.
+## 3. 触点清单（交付前逐项打勾）
 
-## 4. Visual non-negotiables
+**通用**：□ 官方 Logo 未变形 □ 安全空间与最小尺寸达标 □ 固定信息原文 □ 官网写作 nexai.link □ 紫/橙用法符合语义 □ 对比度 AA □ 无虚假数据/承诺 □ 新增内容已标注待确认
 
-- Reuse the official NexAI logo from `assets/nexai-ai-logo.svg`. Never redraw or approximate it.
-- Primary product purple is `#7417FF`. Product action orange is `#F26322`; the logo gradient may use canonical `#FE6702`.
-- Default surfaces are white, parchment gray, or pale blue-violet. Dark navy/charcoal surfaces are reserved for immersive heroes, project creation, or high-focus evidence areas.
-- Do not add decorative gradients to UI surfaces. The logo gradient and photographic treatment are exceptions.
-- Do not use routine card shadows. Separate content with spacing, surface tone, and `1px` borders. A restrained shadow is allowed only for floating overlays, modals, sticky translucent bars, or image-led marketing heroes.
-- Use rounded geometry consistently: 10–12px controls, 16–18px cards, 20–24px major panels, and full pills only for pills/filters/buttons that are intentionally capsule-shaped.
-- Use Phosphor Icons in the product implementation. Match stroke weight and never mix icon families on one screen.
-- Avoid card overload. If every block becomes a rounded white rectangle, pause and re-establish hierarchy using sections, dividers, lists, or one dominant surface.
-- Avoid fake data, fake accreditation, automatic-authorship claims, and unsupported job guarantees.
+**网站 / App / 小程序** → `references/07-digital-product.md`
+□ 引用 `tokens.css`，无硬编码近似色 □ 每区一个紫色主按钮 44px □ 卡片用 1px 边框不用常规阴影 □ MiSans 字体栈 □ Phosphor 图标 □ 1440 / 中屏 / 390 均检查、无横向溢出 □ 小程序避让胶囊 □ App 图标只用图形标 □ 证据等级与人工复核表述正确
 
-## 5. Button and control grammar
+**社交媒体 / 自媒体 / 视频** → `references/08-social-media.md`
+□ 尺寸与安全区符合平台 □ Logo 左上、标题 ≤ 16 字 □ 小奈与文字分区、互不遮挡 □ 无像素方块 / 菱形底纹 □ 圆形头像用 v1.2 版 □ 底部官网 □ 字幕 MiSans、避开底部 UI 区 □ 片尾：竖版 Logo + 口号 + nexai.link □ 话题 ≤ 5、emoji ≤ 3
 
-- Primary: one compact purple action, normally 44px high. Use a pill in the core product shell; use an 10–12px rounded rectangle in editorial/certification heroes when the selected pattern calls for it.
-- Secondary: white or transparent surface with purple or context-appropriate outline.
-- Quiet action: text link or icon button; do not compete with the primary CTA.
-- Icon control: 44 × 44px target where space permits. Smaller visible icons still need a touch target near 40–44px.
-- Pressed feedback: `scale(.97)` or `scale(.95)` for about 100ms. Avoid bounce or playful spring motion in high-trust workflows.
-- Focus: visible 3px purple-tinted ring with 2px offset.
-- Disabled: visually muted and non-interactive; never remove the label needed to understand the unavailable action.
+**PPT** → `references/09-ppt.md`
+□ 使用 PPT 模板 v1.2（https://brand.nexai.link/downloads.html 下载 `奈势AI-PPT模板-v1.2.pptx`）示例版式、主题字体 MiSans □ 标题写结论 □ 每页一个结构、≤ 3 要点 □ 封面/结尾的口号、使命、官网未改 □ 对外发 PDF
 
-## 6. Role-specific workflow
+**对外物料（名片/单页/海报/画册/邮件签名）** → `references/10-collateral.md`
+□ 出血与最小字号 □ CMYK 输出并打样 □ 名片背面口号 + 官网 □ 二维码 ≥ 25mm □ 邮件签名纯文本信息
 
-### Product manager
+**活动物料** → `references/11-events.md`
+□ 背景板关键信息在上 2/3 □ 合作方 Logo 小于奈势AI 并置于底部 □ 易拉宝底部 20cm 不放信息 □ 胸牌身份色 □ 礼品一件一个主元素、先打样
 
-1. Fill `templates/screen-brief.md`.
-2. Define the real user outcome and the primary action.
-3. Identify the deliverable, evidence, review owner, and opportunity connection.
-4. Select an existing page pattern before inventing a new one.
-5. Mark facts, assumptions, and changing market data separately.
-6. Hand off acceptance criteria including desktop, intermediate, and mobile behavior.
+**办公环境** → `references/12-workplace.md`
+□ Logo 墙中心 1.6–1.8m、宽 ≤ 墙宽 50% □ 会议室按名校简称命名（不用校徽校色） □ 门牌格式 楼层-编号 + 主名 + 副名 + 人数，MiSans □ 导视墨黑白字 □ 文化墙用原文
 
-### UI / product designer
+**审批与归档** → `references/13-governance.md`
+□ 判定 A/B/C 审批级别 □ 文件名 `NexAI_类别_名称_规格_版本_日期` □ 源文件入素材库
 
-1. Start from the token and component files, not a blank aesthetic exploration.
-2. Reuse an existing topology from `references/page-patterns.md`.
-3. Use brand purple for identity, selected state, and the single primary action.
-4. Define default, hover, focus, pressed, expanded/collapsed, empty, loading, success, and error states where relevant.
-5. Check the layout at wide desktop, intermediate desktop, and mobile before handoff.
-6. Include real Chinese copy and realistic data density. Do not design with lorem ipsum.
+## 4. References（按章拆分，规则优先）
 
-### Frontend engineer
+- `references/01-foundation.md` 品牌基础、语气、名称与网址写法
+- `references/02-logo.md` Logo 版本、尺寸、背景、错误用法
+- `references/03-color.md` 色值、比例、对比度、印刷参考值
+- `references/04-typography.md` MiSans 与授权、字号层级、排版
+- `references/05-graphics.md` 停用的像素辅助图形、图标、摄影、AI 生成图
+- `references/06-mascot.md` 小奈形象、圆形头像、12 表情、8 动作、不压文字、组合
+- `references/07-digital-product.md` 网站 / App / 小程序与设计 token
+- `references/08-social-media.md` 头像、尺寸、模板、视频、语气
+- `references/09-ppt.md` 母版版式与制作规则
+- `references/10-collateral.md` 名片、单页、海报、画册、邮件签名
+- `references/11-events.md` 背景板、易拉宝、展台、胸牌、门票、礼品
+- `references/12-workplace.md` 前台、门牌、导视、名校会议室、工位、文化墙
+- `references/13-governance.md` 审批、命名、素材库、FAQ
+- `references/changelog.md` 新增规范 / 建议稿 / 待确认清单与资料缺口
 
-1. Inspect existing components, CSS tokens, routes, and assets before adding new primitives.
-2. Extend shared tokens rather than hardcoding near-duplicate colors, radii, or spacing.
-3. Preserve established runtime, routing, accessibility semantics, and build/deployment files.
-4. Implement the main conversion/task flow end to end; visible core controls cannot be static decoration.
-5. Keep responsive behavior explicit. Do not proportionally shrink desktop UI until text becomes unreadable.
-6. Build, test, visually inspect, check console errors, and complete `references/qa-checklist.md`.
+## 5. Assets
 
-## 7. Page selection rules
+- `assets/logo/svg/`：`nexai-logo-horizontal-{color,reverse,white,black}.svg`、`nexai-logo-vertical-*.svg`、`nexai-mark-{color,white,black}.svg`
+- `assets/logo/png/`：同上 PNG（600/1200w，图形标 256/512w；2400w / 1024w 大图在官网下载页的素材包里）
+- `assets/mascot/`：`xiaonai-standard@{500,1000}h.{png,webp}`
+- `assets/mascot/avatar/`：圆形头像（雾紫 / 白，400 / 1024）、方形头像
+- `assets/mascot/expressions/`：`sticker/`（12 枚带字贴纸 512×600）、`no-text/`（无字版 512×512）
+- `assets/mascot/animated/`：12 枚动态表情 `NN-<名>.gif`（240×240 透明 GIF、带字、循环，单个 ≤ 300KB，可直接用于聊天 / 社群 / 网页）；无字版、480 高清版和微信表情投稿包见官网下载页
+- `assets/mascot/poses/`：8 个延展动作（768×1024 透明 PNG）
+- `assets/tokens/tokens.css`、`tokens.json`；`assets/color/` ASE / GPL / JSON 色板
+- `assets/social/`：各平台 HTML 模板（改字后用浏览器按 meta size 截图导出）
+- PPT 模板、PDF 手册、完整素材包、表情包 zip：不放仓库，从 https://brand.nexai.link/downloads.html 下载
+- 完整可视化规范：品牌规范官网 **https://brand.nexai.link**（拿不准时以官网为准）
 
-Choose the closest packaged pattern:
+## 6. 何时停下来问
 
-- Marketing/home aggregation: home sequence pattern.
-- Course-like real project: project-detail pattern.
-- Guided AI creation: full-screen project follow room.
-- Personal evidence and growth: AI Passport board.
-- Community: focused information feed.
-- Certification: career-proof detail page.
-- Jobs/opportunities: evidence-to-role connection, with changing market data clearly labeled.
+- 需要的 Logo 版本、英文字标、小奈动作 / 表情在 `assets/` 中不存在；
+- 有人要求使用像素方块辅助图形、菱形网格底纹或让小奈压字；
+- 需要写公司数据、排名、合作关系、认证结论、薪资等事实而没有来源；
+- 需求要求改动 Logo、使命、愿景、口号或官网写法；
+- 外部风格参考会覆盖奈势AI 的颜色、字体或命名；
+- 要对外发布、提交或印刷 A 级物料（见 governance）而未经审批。
 
-Do not combine several patterns into one screen unless the user journey genuinely requires it.
+## 7. 输出约定
 
-## 8. Content and naming rules
-
-- User-facing name: `我的 AI 护照` or `AI护照`; never restore `AI地图`.
-- Primary navigation label: `项目`; contextual labels may use `PBL 实战项目`.
-- Primary navigation label: `社区`; legacy route names may remain internal.
-- Primary navigation label: `机会`; avoid switching back to `职业` as the channel name.
-- Brand line: `Empower Every AI Builder` / `成就每一位 AI 创造者`.
-- Explain certification as evidence plus human review. Do not call it a degree, international-standard credential, or guaranteed employment outcome.
-- Label salary, hiring demand, rankings, and market figures with source/date context and a change disclaimer.
-
-## 9. Output contract
-
-For a NexAI design/build task, return or produce:
-
-1. The selected page pattern and user outcome.
-2. Reused tokens/components and any justified extensions.
-3. Working responsive implementation or a clear implementation spec.
-4. Main interaction states.
-5. Evidence/trust handling notes when relevant.
-6. Verification result using `references/qa-checklist.md`.
-7. Explicit remaining assumptions or unavailable source material.
-
-## 10. Stop conditions
-
-Stop and request direction when:
-
-- a requested external style would overwrite NexAI identity rather than inform layout;
-- the action would publish, submit, certify, or expose user data without authorization;
-- a formal certification claim lacks a human review path;
-- a logo, partner mark, job figure, certification fact, or source asset is missing and guessing would create a false claim;
-- a major new route has no clear user outcome or primary action.
-
-## 11. Packaged artifacts
-
-- `NexAI-品牌UI规范.html` — browsable team guideline.
-- `references/design-tokens.md` — color, type, spacing, radius, elevation, motion, responsive rules.
-- `references/components.md` — reusable component anatomy and states.
-- `references/page-patterns.md` — route and layout patterns.
-- `references/content-and-trust.md` — evidence, certification, AI, privacy, and job-data constraints.
-- `references/qa-checklist.md` — shared acceptance gate.
-- `templates/screen-brief.md` — PM/design/engineering kickoff template.
-- `assets/` — official logo and representative validated screenshots.
-
+交付时说明：① 触点与所用模板；② 使用的素材与 token；③ 清单自检结果；④ 你新增或假设的内容（标注"待确认"）；⑤ 无法获得的素材。

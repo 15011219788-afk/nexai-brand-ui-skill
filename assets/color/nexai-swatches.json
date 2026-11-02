@@ -1,0 +1,167 @@
+[
+  {
+    "name": "奈势紫 NexAI Purple",
+    "hex": "#6857E7",
+    "rgb": [
+      104,
+      87,
+      231
+    ],
+    "cmyk_reference": [
+      55,
+      62,
+      0,
+      9
+    ]
+  },
+  {
+    "name": "深紫 Deep Purple",
+    "hex": "#3C237C",
+    "rgb": [
+      60,
+      35,
+      124
+    ],
+    "cmyk_reference": [
+      52,
+      72,
+      0,
+      51
+    ]
+  },
+  {
+    "name": "薰衣草紫 Lavender",
+    "hex": "#BBBBFE",
+    "rgb": [
+      187,
+      187,
+      254
+    ],
+    "cmyk_reference": [
+      26,
+      26,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "雾紫 Mist",
+    "hex": "#F1F0FD",
+    "rgb": [
+      241,
+      240,
+      253
+    ],
+    "cmyk_reference": [
+      5,
+      5,
+      0,
+      1
+    ]
+  },
+  {
+    "name": "珊瑚橙 Coral",
+    "hex": "#FF604A",
+    "rgb": [
+      255,
+      96,
+      74
+    ],
+    "cmyk_reference": [
+      0,
+      62,
+      71,
+      0
+    ]
+  },
+  {
+    "name": "墨黑 Ink",
+    "hex": "#262626",
+    "rgb": [
+      38,
+      38,
+      38
+    ],
+    "cmyk_reference": [
+      0,
+      0,
+      0,
+      85
+    ]
+  },
+  {
+    "name": "中灰 Gray",
+    "hex": "#6E6E73",
+    "rgb": [
+      110,
+      110,
+      115
+    ],
+    "cmyk_reference": [
+      4,
+      4,
+      0,
+      55
+    ]
+  },
+  {
+    "name": "浅灰 Surface",
+    "hex": "#F6F6F8",
+    "rgb": [
+      246,
+      246,
+      248
+    ],
+    "cmyk_reference": [
+      1,
+      1,
+      0,
+      3
+    ]
+  },
+  {
+    "name": "白 White",
+    "hex": "#FFFFFF",
+    "rgb": [
+      255,
+      255,
+      255
+    ],
+    "cmyk_reference": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "Logo 渐变紫（25% 处起）",
+    "hex": "#7417FF",
+    "rgb": [
+      116,
+      23,
+      255
+    ],
+    "cmyk_reference": [
+      55,
+      91,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "Logo 渐变橙",
+    "hex": "#FE6702",
+    "rgb": [
+      254,
+      103,
+      2
+    ],
+    "cmyk_reference": [
+      0,
+      59,
+      99,
+      0
+    ]
+  }
+]

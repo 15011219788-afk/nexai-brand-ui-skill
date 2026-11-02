@@ -1,0 +1,90 @@
+:root {
+  /* 奈势AI / NexAI 设计令牌 v1.2.0 · 2026-11-02 · https://nexai.link */
+  /* 色彩唯一来源：品牌视觉板 SVG 原文件（用户确认：以 SVG 原文件为准） */
+  /* 品牌色板 */
+  --nx-purple: #6857E7; /* 奈势紫 NexAI Purple · 主色：主行动、选中、身份强调；全白 Logo 的品牌色底 */
+  --nx-purple-deep: #3C237C; /* 深紫 Deep Purple · 主色阶最深：悬停/按下、深色强调块、图表深色 */
+  --nx-lavender: #BBBBFE; /* 薰衣草紫 Lavender · 主色阶浅色：装饰圆点/图形、图表辅助、深底上的强调文字 */
+  --nx-mist: #F1F0FD; /* 雾紫 Mist · 主色阶最浅：浅底面板、选中底色、标签底 */
+  --nx-coral: #FF604A; /* 珊瑚橙 Coral · 唯一强调色：截止、限时、增长、需要注意的点；每版一处 */
+  --nx-ink: #262626; /* 墨黑 Ink · 正文与标题；Logo 字标；深色背景（反白 Logo 底、封面、背景板） */
+  --nx-gray: #6E6E73; /* 中灰 Gray · 次要文字、说明、元信息、图标 */
+  --nx-surface: #F6F6F8; /* 浅灰 Surface · 页面背景、分区底色 */
+  --nx-white: #FFFFFF; /* 白 White · 画布、卡片、深底上的文字 */
+  /* Logo 专用：只存在于 Logo 图形标渐变内，不用于其他任何元素 */
+  --nx-logo-gradient-start: #7417FF; /* Logo 渐变紫（25% 处起） */
+  --nx-logo-gradient-end: #FE6702; /* Logo 渐变橙 */
+  --nx-gradient-logo: linear-gradient(120deg, #7417FF 25%, #FE6702 100%); /* 仅 Logo 图形标 */
+  /* 功能色：视觉板未定义，仅用于产品界面状态提示，不用于品牌/营销 */
+  --nx-success: #08755F; /* 成功绿（仅产品界面状态） */
+  --nx-warning: #B45F06; /* 警示（仅产品界面状态） */
+  --nx-danger: #B42318; /* 危险红（仅产品界面状态） */
+  --nx-line: rgba(0, 0, 0, .09);
+  --nx-line-strong: rgba(0, 0, 0, .14);
+  --nx-focus: rgba(104, 87, 231, .3);
+  --nx-coral-tint: rgba(255, 96, 74, .12); /* 珊瑚橙 12% 透明，浅提示底 */
+  /* 兼容别名（v1.0 旧变量名，已弃用，值已指向新色板） */
+  --nx-purple-hover: var(--nx-purple-deep);
+  --nx-purple-soft: var(--nx-mist);
+  --nx-purple-tint: var(--nx-mist);
+  --nx-purple-on-dark: var(--nx-lavender);
+  --nx-surface-violet: var(--nx-mist);
+  --nx-orange: var(--nx-coral);
+  --nx-logo-charcoal: var(--nx-ink);
+  --nx-muted: var(--nx-gray);
+  --nx-subtle: var(--nx-gray);
+  --nx-surface-2: var(--nx-surface);
+  --nx-parchment: var(--nx-surface);
+  --nx-canvas: var(--nx-white);
+  --nx-dark: var(--nx-ink);
+  --nx-dark-navy: var(--nx-ink);
+  --nx-dark-panel: var(--nx-ink);
+  --nx-dark-neutral: var(--nx-ink);
+  --nx-ext-deep-violet: var(--nx-purple-deep);
+  --nx-ext-lavender: var(--nx-lavender);
+  --nx-ext-mist: var(--nx-mist);
+  /* 字体（v1.2：品牌字体统一为 MiSans，小米出品，可免费商用；下载 https://hyperos.mi.com/font） */
+  --nx-font: MiSans, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --nx-font-text: var(--nx-font);
+  --nx-font-display: var(--nx-font);
+  --nx-font-brand: var(--nx-font);
+  --nx-font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; /* 仅代码 */
+  --nx-weight-regular: 400;
+  --nx-weight-medium: 500;
+  --nx-weight-semibold: 600;
+  --nx-weight-bold: 700;
+  /* 圆角 */
+  --nx-radius-xs: 5px;
+  --nx-radius-sm: 8px;
+  --nx-radius-control: 10px;
+  --nx-radius-control-lg: 12px;
+  --nx-radius-card: 16px;
+  --nx-radius-card-lg: 18px;
+  --nx-radius-panel: 20px;
+  --nx-radius-hero: 22px;
+  --nx-radius-feature: 24px;
+  --nx-radius-pill: 999px;
+  /* 间距 */
+  --nx-space-1: 4px;
+  --nx-space-2: 6px;
+  --nx-space-3: 8px;
+  --nx-space-4: 10px;
+  --nx-space-5: 12px;
+  --nx-space-6: 14px;
+  --nx-space-7: 16px;
+  --nx-space-8: 18px;
+  --nx-space-9: 20px;
+  --nx-space-10: 22px;
+  --nx-space-11: 24px;
+  --nx-space-12: 28px;
+  --nx-space-13: 30px;
+  --nx-space-14: 34px;
+  --nx-space-15: 40px;
+  --nx-space-16: 44px;
+  --nx-space-17: 56px;
+  --nx-space-18: 68px;
+  --nx-shadow-floating: 0 14px 40px rgba(38, 38, 38, .13);
+  --nx-sidebar: 176px;
+  --nx-sidebar-compact: 64px;
+  --nx-page-max: 1240px;
+}

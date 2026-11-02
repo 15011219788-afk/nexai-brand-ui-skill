@@ -1,0 +1,19 @@
+@import url("../tokens/tokens.css");
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:var(--w);height:var(--h);overflow:hidden}
+body{font-family:MiSans,'PingFang SC','Microsoft YaHei',sans-serif;color:var(--nx-ink);-webkit-font-smoothing:antialiased;position:relative}
+.dark{background:var(--nx-dark-navy);color:#fff}
+.soft{background:var(--nx-purple-tint)}
+.surface{background:var(--nx-surface)}
+.abs{position:absolute}
+.tag{display:inline-flex;align-items:center;gap:.4em;padding:.35em .8em;border-radius:999px;background:var(--nx-purple-soft);color:var(--nx-purple);font-weight:700}
+.dark .tag{background:rgba(255,255,255,.1);color:#BBBBFE}
+.h{font-weight:700;letter-spacing:-.03em;line-height:1.12}
+.muted{color:var(--nx-muted)} .dark .muted{color:rgba(255,255,255,.68)}
+.purple{color:var(--nx-purple)} .orange{color:var(--nx-orange)}
+.url{font-weight:600;letter-spacing:.01em}
+.guide{position:absolute;border:2px dashed rgba(255,96,74,.9);pointer-events:none}
+.guide span{position:absolute;top:6px;left:8px;font:600 18px/1 MiSans,sans-serif;color:#FF604A;background:#fff;padding:3px 6px;border-radius:4px}
+body.noguide .guide{display:none}
+
+/* v1.2：小奈与文字分区排版，不叠压；不使用像素方块与菱形底纹 */
