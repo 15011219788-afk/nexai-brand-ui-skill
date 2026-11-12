@@ -4,7 +4,7 @@
 v1.2 起所有触点统一使用 **MiSans**（小米出品的全字重中文字体，覆盖简体中文与拉丁字母、数字）：网站 / App / 小程序、社媒与视频、PPT、印刷物料、活动物料与办公标识。
 
 - 下载与授权：https://hyperos.mi.com/font （官方页面下载；按《MiSans 字体知识产权使用许可协议》使用，可免费商用，不得单独售卖或修改字体文件）
-- 字重：Regular 400（正文）、Medium 500（字幕、强调）、Semibold 600（卡片标题）、Bold 700（标题、门牌、贴纸配字）
+- 字重：Regular 400（正文）、Medium 500（字幕、强调）、Semibold 600（卡片标题；**v1.3 起网页标题默认字重 600**）、Bold 700（门牌、贴纸配字，以及视频字幕、社媒封面等远看场景；网页标题不再默认 700）
 - 网页字体栈：`font-family: MiSans, 'PingFang SC', 'Microsoft YaHei', sans-serif;`（tokens.css 的 `--nx-font-text` / `--nx-font-display` / `--nx-font-brand` 已统一为 MiSans）
 - 网页可自托管 MiSans WOFF2（按需子集化），设备未安装时按字体栈回退
 - PPT / Office：主题字体设为 MiSans；对外发送导出 PDF 并内嵌字体；对方无 MiSans 时显示回退字体，属正常

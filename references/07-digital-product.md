@@ -15,14 +15,18 @@
 - 小程序【建议稿】：头像用图形标；分享卡片 5:4，左上放反白横版 Logo；启动页品牌露出 ≤ 1.5s，不做广告式动画。
 - 小奈同学（沿用）：可折叠的 AI 伙伴；关键动作前需用户确认；能力快测是建议，不是认证。
 
-## 设计 Token（结构沿用，色值以视觉板 SVG 为准）
-直接引用 `assets/tokens/tokens.css` 或 `tokens.json`，不要在业务代码里硬编码相近色值。旧变量名（--nx-purple-hover、--nx-orange、--nx-dark-navy 等）保留为兼容别名，已指向新色值。
+## 设计 Token（v1.3.2 语义层；品牌原色仍以视觉板 SVG 为准）
+直接引用 `assets/tokens/tokens.css` 或 `tokens.json`（当前为 v1.3.2），组件只用语义变量 `--nx-color-*`，不要在业务代码里硬编码相近色值。旧变量名（--nx-purple-hover、--nx-orange、--nx-dark-navy 等）保留为兼容别名，已指向新色值。三层结构、深色模式与主题包用法见 `14-tokens-v1.3.md`。组件样式对照官网 https://brand.nexai.link/components.html（排在「应用规范」之后）。
+
+深色模式：支持 `[data-theme="dark"]` 与 `prefers-color-scheme`；`data-theme="light"` 固定浅色。品牌站开关使用 `localStorage` 键 `nx-theme`，并在首屏绘制前写入 `data-theme`，避免闪白。深色页面底为中性墨黑 #262626。
+
+网页标题字重 600。主按钮悬停 #5F4AD4、按下 #5743B7，不要再用深紫 #3C237C。破坏性/强调按钮用珊瑚橙 #FF604A 配墨黑字（`--nx-color-button-danger`），禁止白字；悬停 #FA5B46（4.79:1）、按下 #F75742。白底不用 #FF604A 做文字，≥48px 品牌大字才用独立定值 #E5503A。
 
 | 类别 | Token | 值 | 用途 |
 |---|---|---|---|
-| 颜色 | --nx-purple / --nx-purple-deep | #6857E7 / #3C237C | 主行动、选中、身份 / 悬停、按下 |
+| 颜色 | --nx-purple / --nx-color-accent-hover / --nx-color-accent-pressed | #6857E7 / #5F4AD4 / #5743B7 | 主行动、选中、身份 / 悬停 / 按下 |
 | | --nx-lavender / --nx-mist | #BBBBFE / #F1F0FD | 深色底强调文字、装饰 / 选中底色、信息面板 |
-| | --nx-coral | #FF604A | 截止、限时、增长（唯一强调色） |
+| | --nx-coral / --nx-color-button-danger | #FF604A 配墨黑 #262626 | 截止、限时、增长（唯一强调色）；破坏性/强调按钮（悬停 #FA5B46，按下 #F75742） |
 | | --nx-ink / --nx-gray | #262626 / #6E6E73 | 正文标题 / 次要文字 |
 | | --nx-surface / --nx-white | #F6F6F8 / #FFFFFF | 页面背景 / 卡片画布 |
 | | --nx-ink（深色区） | #262626 | 沉浸 Hero、认证、跟练舱 |
@@ -35,7 +39,8 @@
 | 动效 | 悬停 160–200ms；按下 100ms scale(.97) | 布局 240ms | 尊重减少动效设置，认证流程不用弹跳 |
 
 ## 必须
-- 每个区域只有一个紫色主按钮（高 44px）。
+- 每个区域只有一个紫色主按钮（高 44px）；悬停 #5F4AD4，按下 #5743B7。
+- 破坏性/强调按钮用珊瑚橙配墨黑，不用白字，也不要用全局 error 色代替。
 - 卡片用 1px 边框与间距分隔，不用常规阴影。
 - 图标统一 Phosphor，描边一致。
 - 焦点可见、触控目标 ≥ 44px、对比度 AA。
@@ -45,7 +50,7 @@
 ## 禁止
 - 界面装饰渐变、渐变按钮。
 - 每块内容都做成圆角白卡片。
-- 橙色作为第二主按钮。
+- 把珊瑚橙当成第二主按钮，或在珊瑚橙按钮上使用白字。
 - 假数据、假合作方 Logo、就业 / 薪资承诺。
 - AI 自动生成正式认证结论。
 - 暗示系统会静默读取用户外部账号。
