@@ -1,29 +1,425 @@
+/* 奈势AI / NexAI 设计令牌 v1.3.2 · 2026-11-12 · https://nexai.link */
+/* 由 scripts/emit.mjs 从 tokens.json 生成，请勿手改。三层：原始色 --nx-* → 色阶 --nx-<色系>-<stop> → 语义 --nx-color-*（组件只用语义层） */
+/* Astryx 对齐：--nx-X 去掉 nx- 即 Astryx 的 --X。深色：<html data-theme="dark">，或未设 data-theme="light" 时跟随系统 */
 :root {
-  /* 奈势AI / NexAI 设计令牌 v1.2.0 · 2026-11-02 · https://nexai.link */
-  /* 色彩唯一来源：品牌视觉板 SVG 原文件（用户确认：以 SVG 原文件为准） */
-  /* 品牌色板 */
-  --nx-purple: #6857E7; /* 奈势紫 NexAI Purple · 主色：主行动、选中、身份强调；全白 Logo 的品牌色底 */
-  --nx-purple-deep: #3C237C; /* 深紫 Deep Purple · 主色阶最深：悬停/按下、深色强调块、图表深色 */
-  --nx-lavender: #BBBBFE; /* 薰衣草紫 Lavender · 主色阶浅色：装饰圆点/图形、图表辅助、深底上的强调文字 */
-  --nx-mist: #F1F0FD; /* 雾紫 Mist · 主色阶最浅：浅底面板、选中底色、标签底 */
-  --nx-coral: #FF604A; /* 珊瑚橙 Coral · 唯一强调色：截止、限时、增长、需要注意的点；每版一处 */
-  --nx-ink: #262626; /* 墨黑 Ink · 正文与标题；Logo 字标；深色背景（反白 Logo 底、封面、背景板） */
-  --nx-gray: #6E6E73; /* 中灰 Gray · 次要文字、说明、元信息、图标 */
-  --nx-surface: #F6F6F8; /* 浅灰 Surface · 页面背景、分区底色 */
-  --nx-white: #FFFFFF; /* 白 White · 画布、卡片、深底上的文字 */
-  /* Logo 专用：只存在于 Logo 图形标渐变内，不用于其他任何元素 */
-  --nx-logo-gradient-start: #7417FF; /* Logo 渐变紫（25% 处起） */
-  --nx-logo-gradient-end: #FE6702; /* Logo 渐变橙 */
-  --nx-gradient-logo: linear-gradient(120deg, #7417FF 25%, #FE6702 100%); /* 仅 Logo 图形标 */
-  /* 功能色：视觉板未定义，仅用于产品界面状态提示，不用于品牌/营销 */
+  color-scheme: light;
+  /* ── 1. 原始品牌色（v1.2 原值） ── */
+  --nx-purple: #6857E7; /* 奈势紫 · 主色 */
+  --nx-purple-deep: #3C237C; /* 深紫 */
+  --nx-lavender: #BBBBFE; /* 薰衣草紫 */
+  --nx-mist: #F1F0FD; /* 雾紫 */
+  --nx-coral: #FF604A; /* 珊瑚橙 · 唯一强调色，每版一处 */
+  --nx-ink: #262626; /* 墨黑 */
+  --nx-gray: #6E6E73; /* 中灰 */
+  --nx-surface: #F6F6F8; /* 浅灰 */
+  --nx-white: #FFFFFF; /* 白 */
   --nx-success: #08755F; /* 成功绿（仅产品界面状态） */
   --nx-warning: #B45F06; /* 警示（仅产品界面状态） */
   --nx-danger: #B42318; /* 危险红（仅产品界面状态） */
-  --nx-line: rgba(0, 0, 0, .09);
+  /* Logo 专用：只存在于 Logo 图形标渐变内 */
+  --nx-logo-gradient-start: #7417FF;
+  --nx-logo-gradient-end: #FE6702;
+  --nx-gradient-logo: linear-gradient(120deg, #7417FF 25%, #FE6702 100%);
+  /* ── 2. 色阶（astryx-oklch-v1；stop 0 黑 → 100 白；-dk- 为深色模式色阶） ── */
+  /* 奈势紫 · 浅色 */
+  --nx-purple-5: #130732;
+  --nx-purple-10: #220F4D;
+  --nx-purple-15: #301866;
+  --nx-purple-20: #3C237C; /*锚*/
+  --nx-purple-25: #462C8F;
+  --nx-purple-30: #4F38A4;
+  --nx-purple-35: #5743B7;
+  --nx-purple-40: #5F4AD4;
+  --nx-purple-45: #6857E7; /*锚*/
+  --nx-purple-50: #7366F2;
+  --nx-purple-55: #7E74FA;
+  --nx-purple-60: #8981FF;
+  --nx-purple-65: #9390FF;
+  --nx-purple-70: #A09DFF;
+  --nx-purple-75: #ADACFF;
+  --nx-purple-80: #BBBBFE; /*锚*/
+  --nx-purple-85: #CDCCFE;
+  --nx-purple-90: #E0DFFD;
+  --nx-purple-95: #F1F0FD; /*锚*/
+  /* 奈势紫 · 深色 */
+  --nx-purple-dk-5: #13092E;
+  --nx-purple-dk-10: #21114B;
+  --nx-purple-dk-15: #301A66;
+  --nx-purple-dk-20: #3C237C; /*锚*/
+  --nx-purple-dk-25: #462D8F;
+  --nx-purple-dk-30: #4E38A3;
+  --nx-purple-dk-35: #5742B8;
+  --nx-purple-dk-40: #5F4AD4;
+  --nx-purple-dk-45: #6857E7; /*锚*/
+  --nx-purple-dk-50: #7365F1;
+  --nx-purple-dk-55: #7E73F7;
+  --nx-purple-dk-60: #8982FB;
+  --nx-purple-dk-65: #948FFD;
+  --nx-purple-dk-70: #9F9DFF;
+  --nx-purple-dk-75: #ADACFF;
+  --nx-purple-dk-80: #BBBBFE; /*锚*/
+  --nx-purple-dk-85: #CDCCFE;
+  --nx-purple-dk-90: #E0DFFD;
+  --nx-purple-dk-95: #F1F0FD; /*锚*/
+  /* 中性灰 · 浅色 */
+  --nx-neutral-5: #111111;
+  --nx-neutral-10: #1B1B1B;
+  --nx-neutral-15: #262626; /*锚*/
+  --nx-neutral-20: #313030;
+  --nx-neutral-25: #3D3C3C;
+  --nx-neutral-30: #4B4848;
+  --nx-neutral-35: #575457;
+  --nx-neutral-40: #636166;
+  --nx-neutral-45: #6E6E73; /*锚*/
+  --nx-neutral-50: #7B7B80;
+  --nx-neutral-55: #87878C;
+  --nx-neutral-60: #94949A;
+  --nx-neutral-65: #A2A2A7;
+  --nx-neutral-70: #B0B0B4;
+  --nx-neutral-75: #BDBDC1;
+  --nx-neutral-80: #CCCCCF;
+  --nx-neutral-85: #DADADD;
+  --nx-neutral-90: #E8E8EB;
+  --nx-neutral-95: #F6F6F8; /*锚*/
+  /* 中性灰 · 深色 */
+  --nx-neutral-dk-5: #111111;
+  --nx-neutral-dk-10: #1B1B1B;
+  --nx-neutral-dk-15: #262626; /*锚*/
+  --nx-neutral-dk-20: #313030;
+  --nx-neutral-dk-25: #3D3C3C;
+  --nx-neutral-dk-30: #4A4848;
+  --nx-neutral-dk-35: #575457;
+  --nx-neutral-dk-40: #636265;
+  --nx-neutral-dk-45: #6E6E73; /*锚*/
+  --nx-neutral-dk-50: #7B7B7F;
+  --nx-neutral-dk-55: #87878C;
+  --nx-neutral-dk-60: #949499;
+  --nx-neutral-dk-65: #A1A1A6;
+  --nx-neutral-dk-70: #B0B0B3;
+  --nx-neutral-dk-75: #BDBDC1;
+  --nx-neutral-dk-80: #CBCBCE;
+  --nx-neutral-dk-85: #D9D9DD;
+  --nx-neutral-dk-90: #E7E7EA;
+  --nx-neutral-dk-95: #F6F6F8; /*锚*/
+  /* 珊瑚橙 · 浅色 */
+  --nx-coral-5: #2C0000;
+  --nx-coral-10: #3E0000;
+  --nx-coral-15: #500000;
+  --nx-coral-20: #620000;
+  --nx-coral-25: #750200;
+  --nx-coral-30: #880500;
+  --nx-coral-35: #9D0900;
+  --nx-coral-40: #B01B0A;
+  --nx-coral-45: #C52D1C;
+  --nx-coral-50: #DB3E2B;
+  --nx-coral-55: #EF4F3B;
+  --nx-coral-60: #FF604A; /*锚*/
+  --nx-coral-65: #FF7A66;
+  --nx-coral-70: #FF8E7C;
+  --nx-coral-75: #FFA08F;
+  --nx-coral-80: #FFB1A3;
+  --nx-coral-85: #FFC4B9;
+  --nx-coral-90: #FFD8D1;
+  --nx-coral-95: #FFECE8;
+  /* 珊瑚橙 · 深色 */
+  --nx-coral-dk-5: #2B0000;
+  --nx-coral-dk-10: #3E0000;
+  --nx-coral-dk-15: #500000;
+  --nx-coral-dk-20: #620000;
+  --nx-coral-dk-25: #730A01;
+  --nx-coral-dk-30: #83160A;
+  --nx-coral-dk-35: #942315;
+  --nx-coral-dk-40: #A72E20;
+  --nx-coral-dk-45: #BE3927;
+  --nx-coral-dk-50: #D74531;
+  --nx-coral-dk-55: #ED523C;
+  --nx-coral-dk-60: #FF604A; /*锚*/
+  --nx-coral-dk-65: #FF7B66;
+  --nx-coral-dk-70: #FF8F7C;
+  --nx-coral-dk-75: #FFA08F;
+  --nx-coral-dk-80: #FFB1A3;
+  --nx-coral-dk-85: #FFC4B9;
+  --nx-coral-dk-90: #FFD8D1;
+  --nx-coral-dk-95: #FFECE8;
+  /* 成功绿 · 浅色（仅用到的档） */
+  --nx-success-30: #035846;
+  --nx-success-95: #D5FBEE;
+  /* 成功绿 · 深色（仅用到的档） */
+  --nx-success-dk-70: #6EBDA6;
+  --nx-success-dk-75: #84C9B4;
+  --nx-success-dk-80: #99D5C3;
+  /* 警示橙 · 浅色（仅用到的档） */
+  --nx-warning-30: #773701;
+  --nx-warning-40: #A15204;
+  --nx-warning-95: #FFEDE1;
+  /* 警示橙 · 深色（仅用到的档） */
+  --nx-warning-dk-70: #E89454;
+  --nx-warning-dk-75: #F4A468;
+  --nx-warning-dk-80: #FFB37C;
+  /* 危险红 · 浅色（仅用到的档） */
+  --nx-error-30: #8F0201;
+  --nx-error-95: #FFECE8;
+  /* 危险红 · 深色（仅用到的档） */
+  --nx-error-dk-70: #F78676;
+  --nx-error-dk-75: #FF9989;
+  --nx-error-dk-80: #FFAFA2;
+  /* ── 3. 语义色 · 浅色 ── */
+  /* 背景 */
+  --nx-color-background-body: var(--nx-surface); /* 页面底（最底层） */
+  --nx-color-background-surface: var(--nx-white); /* 主画布、导航、与页面同层的大面板 */
+  --nx-color-background-card: var(--nx-white); /* 卡片、列表容器（比页面高一层） */
+  --nx-color-background-popover: var(--nx-white); /* 菜单、弹窗、浮层（最高层） */
+  --nx-color-background-muted: var(--nx-surface); /* 卡片内的次级分区、代码块、输入框静止底 */
+  --nx-color-background-inverted: var(--nx-ink); /* 反相块（toast 等） */
+  --nx-color-background-error-inverted: var(--nx-danger); /* 反相面上的错误填充（错误 Toast 底）；浅/深都用 #B42318，配 #F6F6F8 字 */
+  --nx-color-background-brand: var(--nx-mist); /* 品牌浅底面板（雾紫；深色下为深紫） */
+  --nx-color-background-emphasized: var(--nx-purple-deep); /* 深紫强调色块：封面、Hero、数据大字块 */
+  /* 文字 */
+  --nx-color-text-primary: var(--nx-ink); /* 标题、正文 */
+  --nx-color-text-secondary: var(--nx-gray); /* 说明、元信息 */
+  --nx-color-text-disabled: var(--nx-neutral-65); /* 不可用文字（豁免对比度，须配合其他不可用提示） */
+  --nx-color-text-accent: var(--nx-purple); /* 链接、品牌强调文字 */
+  --nx-color-on-dark: var(--nx-white); /* 深色面（深紫块、墨黑块、图片）上的文字 */
+  --nx-color-on-light: var(--nx-ink); /* 浅色面（薰衣草、珊瑚橙、白图）上的文字 */
+  --nx-color-on-emphasized-secondary: var(--nx-lavender); /* 深紫色块上的副标题/强调字 */
+  --nx-color-text-highlight: var(--nx-coral); /* 珊瑚橙字：浅色下仅装饰（<3:1），深色下可作大字；每版一处 */
+  /* 图标 */
+  --nx-color-icon-primary: var(--nx-ink);
+  --nx-color-icon-secondary: var(--nx-gray);
+  --nx-color-icon-disabled: var(--nx-neutral-65);
+  --nx-color-icon-accent: var(--nx-purple);
+  /* 边框 */
+  --nx-color-border: var(--nx-neutral-90); /* 分隔线、卡片描边（装饰性） */
+  --nx-color-border-emphasized: var(--nx-neutral-55); /* 控件边界：输入框、复选框（≥3:1） */
+  --nx-color-border-accent: var(--nx-purple); /* 选中描边；深色下的纯图形选中态 */
+  /* 主行动 */
+  --nx-color-accent: var(--nx-purple); /* 主按钮、选中、开关；每个操作组只有一个 */
+  --nx-color-on-accent: var(--nx-white);
+  --nx-color-accent-muted: var(--nx-mist); /* 选中底、品牌标签底 */
+  --nx-color-on-accent-muted: var(--nx-purple-deep); /* 选中底上的文字 */
+  --nx-color-accent-hover: var(--nx-purple-40); /* 主行动悬停（Astryx 用 overlay 叠加实现，见映射表） */
+  --nx-color-accent-pressed: var(--nx-purple-35); /* 主行动按下 */
+  --nx-color-accent-muted-hover: var(--nx-purple-90); /* 浅底悬停 */
+  /* 强调 */
+  --nx-color-highlight: var(--nx-coral); /* 珊瑚橙填充：截止、限时、增长；每版一处 */
+  --nx-color-on-highlight: var(--nx-ink); /* 珊瑚橙上的文字：必须墨黑（白字仅 2.99:1） */
+  --nx-color-highlight-pressed: var(--nx-coral-55);
+  /* 危险按钮 */
+  --nx-color-button-danger: var(--nx-coral); /* 破坏性/强调按钮填充：奈势标准珊瑚橙 #FF604A。白字仅 2.99:1，必须配墨黑字（5.06:1）。不改全局 --color-error，以免影响 Toast 与状态色。浅色与深色相同。 */
+  --nx-color-on-button-danger: var(--nx-ink); /* 危险按钮上的文字与图标：品牌墨黑 #262626。浅色与深色均 5.06:1。 */
+  --nx-color-button-danger-hover: #FA5B46; /* 危险按钮悬停：沿珊瑚色阶 60→55 加深到 #FA5B46。下一档 coral-55 #EF4F3B 配墨黑仅 4.22:1，不采用；本色配墨黑 4.80:1。浅色与深色相同。 */
+  --nx-color-button-danger-pressed: #F75742; /* 危险按钮按下：沿珊瑚色阶 60→55 再深到 #F75742，配墨黑 4.60:1。浅色与深色相同。 */
+  /* 强调 */
+  --nx-color-highlight-muted: var(--nx-coral-95); /* 珊瑚橙浅底提示条 */
+  --nx-color-on-highlight-muted: var(--nx-ink); /* 珊瑚浅底上的文字（配珊瑚圆点） */
+  /* 状态 */
+  --nx-color-success: var(--nx-success); /* success 强填充 */
+  --nx-color-on-success: var(--nx-white);
+  --nx-color-success-muted: var(--nx-success-95); /* 浅底 */
+  --nx-color-on-success-muted: var(--nx-success-30);
+  --nx-color-text-success: var(--nx-success); /* 页面/卡片上的状态文字 */
+  --nx-color-icon-success: var(--nx-success);
+  --nx-color-border-success: var(--nx-success);
+  --nx-color-warning: var(--nx-warning); /* warning 强填充 */
+  --nx-color-on-warning: var(--nx-white);
+  --nx-color-warning-muted: var(--nx-warning-95); /* 浅底 */
+  --nx-color-on-warning-muted: var(--nx-warning-30);
+  --nx-color-text-warning: var(--nx-warning-40); /* 页面/卡片上的状态文字 */
+  --nx-color-icon-warning: var(--nx-warning-40);
+  --nx-color-border-warning: var(--nx-warning-40);
+  --nx-color-error: var(--nx-danger); /* error 强填充（危险按钮底）；深色为 #E8705F，配墨黑字 */
+  --nx-color-on-error: var(--nx-white);
+  --nx-color-error-muted: var(--nx-error-95); /* 浅底 */
+  --nx-color-on-error-muted: var(--nx-error-30);
+  --nx-color-text-error: var(--nx-danger); /* 页面/卡片上的状态文字 */
+  --nx-color-icon-error: var(--nx-danger);
+  --nx-color-border-error: var(--nx-danger);
+  --nx-color-info: var(--nx-purple); /* 信息态复用奈势紫（单色相品牌），必须带图标 */
+  --nx-color-on-info: var(--nx-white);
+  --nx-color-info-muted: var(--nx-mist);
+  --nx-color-on-info-muted: var(--nx-purple-deep);
+  --nx-color-text-info: var(--nx-purple);
+  --nx-color-icon-info: var(--nx-purple);
+  --nx-color-border-info: var(--nx-purple);
+  /* 交互 */
+  --nx-color-neutral: rgba(38, 38, 38, 0.06); /* 中性浅填充（次按钮底、中性标签底） */
+  --nx-color-overlay: rgba(38, 38, 38, 0.40); /* 弹窗遮罩 */
+  --nx-color-overlay-hover: rgba(38, 38, 38, 0.05); /* 悬停叠加（叠在原底上，不替换） */
+  --nx-color-overlay-pressed: rgba(38, 38, 38, 0.09); /* 按下叠加 */
+  --nx-color-tint-hover: var(--nx-ink); /* color-mix 用的悬停基色（Astryx 约定：浅色深、深色浅） */
+  --nx-color-tint-brand-hover: rgba(104, 87, 231, 0.08); /* 品牌色悬停叠加（列表项、幽灵按钮） */
+  --nx-color-shadow: rgba(60, 35, 124, 0.10); /* 阴影色（深紫调） */
+  --nx-color-skeleton: var(--nx-neutral-90); /* 骨架屏 */
+  --nx-color-track: var(--nx-neutral-90); /* 进度条/滑轨底 */
+  /* 分类色 */
+  --nx-color-background-purple: var(--nx-mist); /* 分类色·紫 = 品牌紫 */
+  --nx-color-background-gray: var(--nx-neutral-90); /* 分类色·灰 = 中性灰 */
+  --nx-color-border-purple: var(--nx-lavender); /* 分类色·紫 = 品牌紫 */
+  --nx-color-border-gray: var(--nx-neutral-80); /* 分类色·灰 = 中性灰 */
+  --nx-color-icon-purple: var(--nx-purple); /* 分类色·紫 = 品牌紫 */
+  --nx-color-icon-gray: var(--nx-gray); /* 分类色·灰 = 中性灰 */
+  --nx-color-text-purple: var(--nx-purple); /* 分类色·紫 = 品牌紫 */
+  --nx-color-text-gray: var(--nx-gray); /* 分类色·灰 = 中性灰 */
+  /* ── 字体 ── */
+  --nx-font-family-body: MiSans, 'PingFang SC', 'Microsoft YaHei', sans-serif; /* 品牌字体 MiSans */
+  --nx-font-family-heading: var(--nx-font-family-body);
+  --nx-font-family-code: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; /* 仅代码 */
+  /* ── 字重 ── */
+  --nx-font-weight-normal: 400; /* 正文 */
+  --nx-font-weight-medium: 500; /* 标签、按钮 */
+  --nx-font-weight-semibold: 600; /* 标题（v1.3 标题默认字重） */
+  --nx-font-weight-bold: 700; /* 只用于视频字幕、社媒封面等远看场景 */
+  /* ── 字号（16px 基准，≈1.25 比率） ── */
+  --nx-font-size-2xs: 0.625rem; /* 10px · 仅英文微标，中文最小 12px */
+  --nx-font-size-xs: 0.75rem; /* 12px */
+  --nx-font-size-sm: 0.875rem; /* 14px */
+  --nx-font-size-base: 1rem; /* 16px · 正文基准 */
+  --nx-font-size-lg: 1.25rem; /* 20px */
+  --nx-font-size-xl: 1.5rem; /* 24px */
+  --nx-font-size-2xl: 1.875rem; /* 30px */
+  --nx-font-size-3xl: 2.375rem; /* 38px */
+  --nx-font-size-4xl: 3rem; /* 48px */
+  --nx-font-size-5xl: 3.75rem; /* 60px */
+  --nx-font-size-3xs: var(--nx-font-size-2xs); /* 10px · 奈势不用；兼容 Astryx 档位 */
+  --nx-font-size-4xs: var(--nx-font-size-2xs); /* 10px · 奈势不用；兼容 Astryx 档位 */
+  /* ── 文字角色 ── */
+  --nx-text-display-1-size: var(--nx-font-size-5xl); /* 60px · 首屏大标题（桌面；移动端用 3xl） */
+  --nx-text-display-1-weight: var(--nx-font-weight-semibold);
+  --nx-text-display-1-leading: 1.1;
+  --nx-text-display-1-tracking: -0.02em; /* 字距（奈势本地；Astryx 无此 token） */
+  --nx-text-display-2-size: var(--nx-font-size-4xl); /* 48px · 区块大标题、封面 */
+  --nx-text-display-2-weight: var(--nx-font-weight-semibold);
+  --nx-text-display-2-leading: 1.15;
+  --nx-text-display-2-tracking: -0.015em; /* 字距（奈势本地；Astryx 无此 token） */
+  --nx-text-display-3-size: var(--nx-font-size-3xl); /* 38px · 大数字、引语 */
+  --nx-text-display-3-weight: var(--nx-font-weight-semibold);
+  --nx-text-display-3-leading: 1.2;
+  --nx-text-display-3-tracking: -0.01em; /* 字距（奈势本地；Astryx 无此 token） */
+  --nx-text-heading-1-size: var(--nx-font-size-3xl); /* 38px · 页面标题 */
+  --nx-text-heading-1-weight: var(--nx-font-weight-semibold);
+  --nx-text-heading-1-leading: 1.2;
+  --nx-text-heading-1-tracking: -0.01em; /* 字距（奈势本地；Astryx 无此 token） */
+  --nx-text-heading-2-size: var(--nx-font-size-2xl); /* 30px · 一级区块标题 */
+  --nx-text-heading-2-weight: var(--nx-font-weight-semibold);
+  --nx-text-heading-2-leading: 1.3;
+  --nx-text-heading-2-tracking: -0.005em; /* 字距（奈势本地；Astryx 无此 token） */
+  --nx-text-heading-3-size: var(--nx-font-size-xl); /* 24px · 卡片标题、二级标题 */
+  --nx-text-heading-3-weight: var(--nx-font-weight-semibold);
+  --nx-text-heading-3-leading: 1.35;
+  --nx-text-heading-3-tracking: 0em; /* 字距（奈势本地；Astryx 无此 token） */
+  --nx-text-heading-4-size: var(--nx-font-size-lg); /* 20px · 小节标题 */
+  --nx-text-heading-4-weight: var(--nx-font-weight-semibold);
+  --nx-text-heading-4-leading: 1.4;
+  --nx-text-heading-4-tracking: 0em; /* 字距（奈势本地；Astryx 无此 token） */
+  --nx-text-heading-5-size: var(--nx-font-size-base); /* 16px · 列表组标题 */
+  --nx-text-heading-5-weight: var(--nx-font-weight-semibold);
+  --nx-text-heading-5-leading: 1.5;
+  --nx-text-heading-5-tracking: 0em; /* 字距（奈势本地；Astryx 无此 token） */
+  --nx-text-heading-6-size: var(--nx-font-size-sm); /* 14px · 表头、分组小标题 */
+  --nx-text-heading-6-weight: var(--nx-font-weight-semibold);
+  --nx-text-heading-6-leading: 1.5;
+  --nx-text-heading-6-tracking: 0em; /* 字距（奈势本地；Astryx 无此 token） */
+  --nx-text-large-size: 1.125rem; /* 18px · 导语、引言 */
+  --nx-text-large-weight: var(--nx-font-weight-normal);
+  --nx-text-large-leading: 1.7;
+  --nx-text-large-tracking: 0em; /* 字距（奈势本地；Astryx 无此 token） */
+  --nx-text-body-size: var(--nx-font-size-base); /* 16px · 正文（中文段落） */
+  --nx-text-body-weight: var(--nx-font-weight-normal);
+  --nx-text-body-leading: 1.75;
+  --nx-text-body-tracking: 0em; /* 字距（奈势本地；Astryx 无此 token） */
+  --nx-text-label-size: var(--nx-font-size-sm); /* 14px · 按钮、表单标签、导航 */
+  --nx-text-label-weight: var(--nx-font-weight-medium);
+  --nx-text-label-leading: 1.4;
+  --nx-text-label-tracking: 0.01em; /* 字距（奈势本地；Astryx 无此 token） */
+  --nx-text-supporting-size: var(--nx-font-size-xs); /* 12px · 注释、来源、时间戳 */
+  --nx-text-supporting-weight: var(--nx-font-weight-normal);
+  --nx-text-supporting-leading: 1.5;
+  --nx-text-supporting-tracking: 0.01em; /* 字距（奈势本地；Astryx 无此 token） */
+  --nx-text-code-size: var(--nx-font-size-sm); /* 14px · 代码 */
+  --nx-text-code-weight: var(--nx-font-weight-normal);
+  --nx-text-code-leading: 1.6;
+  --nx-text-code-tracking: 0em; /* 字距（奈势本地；Astryx 无此 token） */
+  --nx-text-body-sm-size: var(--nx-font-size-sm); /* 14px · 紧凑正文、表格（奈势本地） */
+  /* ── 布局 ── */
+  --nx-measure: 36em; /* 中文段落行宽上限 ≈ 36 字 */
+  /* ── 间距（N × 0.25rem） ── */
+  --nx-spacing-0: 0rem; /* 0px */
+  --nx-spacing-0-5: 0.125rem; /* 2px */
+  --nx-spacing-1: 0.25rem; /* 4px */
+  --nx-spacing-1-5: 0.375rem; /* 6px */
+  --nx-spacing-2: 0.5rem; /* 8px */
+  --nx-spacing-3: 0.75rem; /* 12px */
+  --nx-spacing-4: 1rem; /* 16px */
+  --nx-spacing-5: 1.25rem; /* 20px */
+  --nx-spacing-6: 1.5rem; /* 24px */
+  --nx-spacing-7: 1.75rem; /* 28px */
+  --nx-spacing-8: 2rem; /* 32px */
+  --nx-spacing-9: 2.25rem; /* 36px */
+  --nx-spacing-10: 2.5rem; /* 40px */
+  --nx-spacing-11: 2.75rem; /* 44px */
+  --nx-spacing-12: 3rem; /* 48px */
+  --nx-spacing-16: 4rem; /* 64px · 奈势本地：区块级大间距 */
+  --nx-spacing-20: 5rem; /* 80px · 奈势本地：区块级大间距 */
+  --nx-spacing-24: 6rem; /* 96px · 奈势本地：区块级大间距 */
+  --nx-space-tight: var(--nx-spacing-2); /* 8px · 8px · 标签与字段、图标与文字 */
+  --nx-space-related: var(--nx-spacing-4); /* 16px · 16px · 同组元素之间 */
+  --nx-space-group: var(--nx-spacing-8); /* 32px · 32px · 组与组之间 */
+  --nx-space-section: var(--nx-spacing-24); /* 96px · 96px · 页面区块之间（移动端 spacing-16 = 64px） */
+  --nx-space-card: var(--nx-spacing-8); /* 32px · 32px · 卡片内边距（紧凑卡片 spacing-6） */
+  --nx-space-control-x: var(--nx-spacing-4); /* 16px · 16px · 按钮/输入框水平内边距 */
+  /* ── 控件高度 ── */
+  --nx-size-element-sm: 32px; /* 紧凑控件 */
+  --nx-size-element-md: 40px; /* 默认按钮/输入框 */
+  --nx-size-element-lg: 48px; /* 营销页大按钮、移动端 */
+  /* ── 边框 ── */
+  --nx-border-width: 1px;
+  /* ── 焦点环 ── */
+  --nx-focus-outline-width: 2px;
+  --nx-focus-outline-style: solid;
+  --nx-focus-outline-color: var(--nx-color-border-accent); /* 浅色奈势紫 / 深色薰衣草 */
+  --nx-focus-outline-offset: 2px;
+  /* ── 圆角（四档 + 胶囊；嵌套：内圆角 = 外圆角 − 间距） ── */
+  --nx-radius-none: 0px;
+  --nx-radius-inner: 0.375rem; /* 6px · 嵌套在控件/卡片里的元素、代码片段 */
+  --nx-radius-element: 0.625rem; /* 10px · 按钮、输入框、下拉、小图 */
+  --nx-radius-container: 1rem; /* 16px · 卡片、弹窗、提示条、菜单 */
+  --nx-radius-page: 1.75rem; /* 28px · Hero、特性大面板、封面卡 */
+  --nx-radius-chat: var(--nx-radius-page); /* 对话气泡容器，同 page */
+  --nx-radius-full: 9999px; /* 胶囊：标签、头像、开关 */
+  /* ── 阴影（只表达层级；静止卡片用描边） ── */
+  --nx-shadow-low: 0 1px 2px rgba(38, 38, 38, 0.04), 0 2px 8px rgba(60, 35, 124, 0.05); /* 悬停抬起的卡片、吸顶栏 */
+  --nx-shadow-med: 0 2px 4px rgba(38, 38, 38, 0.04), 0 8px 20px rgba(60, 35, 124, 0.07); /* 下拉菜单、气泡、浮动工具条 */
+  --nx-shadow-high: 0 4px 8px rgba(38, 38, 38, 0.05), 0 16px 40px rgba(60, 35, 124, 0.10); /* 弹窗、抽屉（最高层） */
+  --nx-shadow-inset-hover: inset 0 0 0 2px rgba(38, 38, 38, 0.15); /* 输入框状态环（不是层级阴影） */
+  --nx-shadow-inset-selected: inset 0 0 0 2px rgba(104, 87, 231, 0.50); /* 输入框状态环（不是层级阴影） */
+  --nx-shadow-inset-success: inset 0 0 0 2px rgba(8, 117, 95, 0.30); /* 输入框状态环（不是层级阴影） */
+  --nx-shadow-inset-warning: inset 0 0 0 2px rgba(180, 95, 6, 0.30); /* 输入框状态环（不是层级阴影） */
+  --nx-shadow-inset-error: inset 0 0 0 2px rgba(180, 35, 24, 0.30); /* 输入框状态环（不是层级阴影） */
+  /* ── 动效时长 ── */
+  --nx-duration-fast-min: 95ms;
+  --nx-duration-fast: 125ms; /* 悬停、按下、开关、颜色变化 */
+  --nx-duration-fast-max: 165ms;
+  --nx-duration-medium-min: 225ms;
+  --nx-duration-medium: 300ms; /* 浮层进出、展开收起 */
+  --nx-duration-medium-max: 400ms;
+  --nx-duration-slow-min: 525ms;
+  --nx-duration-slow: 700ms; /* 大面积转场、首屏入场（每页至多一处） */
+  --nx-duration-slow-max: 935ms;
+  --nx-duration-exit: var(--nx-duration-fast); /* 退出比进入快 */
+  /* ── 缓动 ── */
+  --nx-ease-standard: cubic-bezier(0.24, 1, 0.4, 1); /* 默认减速：到达与状态变化 */
+  --nx-ease-entrance: cubic-bezier(0.24, 1, 0.4, 1); /* 入场（不回弹） */
+  --nx-ease-move: cubic-bezier(0.24, 1, 0.4, 1); /* 位移、尺寸变化 */
+  --nx-ease-exit: cubic-bezier(0.3, 0, 0.6, 0.6); /* 离场：从静止加速离开 */
+  /* ── 布局 ── */
+  --nx-page-max: 1240px;
+  --nx-sidebar: 176px;
+  --nx-sidebar-compact: 64px;
+  /* ── v1.2 兼容别名（保留原值，新代码不要再用） ── */
+  --nx-line: var(--nx-color-border);
   --nx-line-strong: rgba(0, 0, 0, .14);
   --nx-focus: rgba(104, 87, 231, .3);
-  --nx-coral-tint: rgba(255, 96, 74, .12); /* 珊瑚橙 12% 透明，浅提示底 */
-  /* 兼容别名（v1.0 旧变量名，已弃用，值已指向新色板） */
+  --nx-coral-tint: rgba(255, 96, 74, .12);
   --nx-purple-hover: var(--nx-purple-deep);
   --nx-purple-soft: var(--nx-mist);
   --nx-purple-tint: var(--nx-mist);
@@ -43,17 +439,15 @@
   --nx-ext-deep-violet: var(--nx-purple-deep);
   --nx-ext-lavender: var(--nx-lavender);
   --nx-ext-mist: var(--nx-mist);
-  /* 字体（v1.2：品牌字体统一为 MiSans，小米出品，可免费商用；下载 https://hyperos.mi.com/font） */
-  --nx-font: MiSans, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --nx-font-text: var(--nx-font);
-  --nx-font-display: var(--nx-font);
-  --nx-font-brand: var(--nx-font);
-  --nx-font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; /* 仅代码 */
-  --nx-weight-regular: 400;
-  --nx-weight-medium: 500;
-  --nx-weight-semibold: 600;
-  --nx-weight-bold: 700;
-  /* 圆角 */
+  --nx-font: var(--nx-font-family-body);
+  --nx-font-text: var(--nx-font-family-body);
+  --nx-font-display: var(--nx-font-family-heading);
+  --nx-font-brand: var(--nx-font-family-body);
+  --nx-font-mono: var(--nx-font-family-code);
+  --nx-weight-regular: var(--nx-font-weight-normal);
+  --nx-weight-medium: var(--nx-font-weight-medium);
+  --nx-weight-semibold: var(--nx-font-weight-semibold);
+  --nx-weight-bold: var(--nx-font-weight-bold);
   --nx-radius-xs: 5px;
   --nx-radius-sm: 8px;
   --nx-radius-control: 10px;
@@ -64,7 +458,7 @@
   --nx-radius-hero: 22px;
   --nx-radius-feature: 24px;
   --nx-radius-pill: 999px;
-  /* 间距 */
+  --nx-shadow-floating: 0 14px 40px rgba(38, 38, 38, .13);
   --nx-space-1: 4px;
   --nx-space-2: 6px;
   --nx-space-3: 8px;
@@ -83,8 +477,263 @@
   --nx-space-16: 44px;
   --nx-space-17: 56px;
   --nx-space-18: 68px;
-  --nx-shadow-floating: 0 14px 40px rgba(38, 38, 38, .13);
-  --nx-sidebar: 176px;
-  --nx-sidebar-compact: 64px;
-  --nx-page-max: 1240px;
+}
+
+/* ── 深色（显式） ── */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --nx-color-background-body: var(--nx-ink);
+  --nx-color-background-surface: var(--nx-ink);
+  --nx-color-background-card: var(--nx-neutral-dk-20);
+  --nx-color-background-popover: var(--nx-neutral-dk-25);
+  --nx-color-background-muted: var(--nx-neutral-dk-10);
+  --nx-color-background-inverted: var(--nx-surface);
+  --nx-color-background-brand: var(--nx-purple-deep);
+  --nx-color-text-primary: var(--nx-surface);
+  --nx-color-text-secondary: var(--nx-neutral-dk-75);
+  --nx-color-text-disabled: var(--nx-neutral-dk-50);
+  --nx-color-text-accent: var(--nx-lavender);
+  --nx-color-icon-primary: var(--nx-surface);
+  --nx-color-icon-secondary: var(--nx-neutral-dk-75);
+  --nx-color-icon-disabled: var(--nx-neutral-dk-50);
+  --nx-color-icon-accent: var(--nx-lavender);
+  --nx-color-border: rgba(246, 246, 248, 0.10);
+  --nx-color-border-emphasized: var(--nx-neutral-dk-60);
+  --nx-color-border-accent: var(--nx-lavender);
+  --nx-color-accent-muted: var(--nx-purple-deep);
+  --nx-color-on-accent-muted: var(--nx-lavender);
+  --nx-color-accent-hover: var(--nx-purple-dk-40);
+  --nx-color-accent-pressed: var(--nx-purple-dk-35);
+  --nx-color-accent-muted-hover: var(--nx-purple-dk-25);
+  --nx-color-highlight-pressed: var(--nx-coral-dk-55);
+  --nx-color-highlight-muted: #4D302C;
+  --nx-color-on-highlight-muted: var(--nx-surface);
+  --nx-color-success: var(--nx-success-dk-70);
+  --nx-color-on-success: var(--nx-ink);
+  --nx-color-success-muted: #2C3F3A;
+  --nx-color-on-success-muted: var(--nx-success-dk-80);
+  --nx-color-text-success: var(--nx-success-dk-75);
+  --nx-color-icon-success: var(--nx-success-dk-75);
+  --nx-color-border-success: var(--nx-success-dk-75);
+  --nx-color-warning: var(--nx-warning-dk-70);
+  --nx-color-on-warning: var(--nx-ink);
+  --nx-color-warning-muted: #483628;
+  --nx-color-on-warning-muted: var(--nx-warning-dk-80);
+  --nx-color-text-warning: var(--nx-warning-dk-75);
+  --nx-color-icon-warning: var(--nx-warning-dk-75);
+  --nx-color-border-warning: var(--nx-warning-dk-75);
+  --nx-color-error: #E8705F;
+  --nx-color-on-error: var(--nx-ink);
+  --nx-color-error-muted: #4B3330;
+  --nx-color-on-error-muted: var(--nx-error-dk-80);
+  --nx-color-text-error: var(--nx-error-dk-70);
+  --nx-color-icon-error: var(--nx-error-dk-70);
+  --nx-color-border-error: var(--nx-error-dk-75);
+  --nx-color-info-muted: var(--nx-purple-deep);
+  --nx-color-on-info-muted: var(--nx-lavender);
+  --nx-color-text-info: var(--nx-lavender);
+  --nx-color-icon-info: var(--nx-lavender);
+  --nx-color-border-info: var(--nx-lavender);
+  --nx-color-neutral: rgba(246, 246, 248, 0.12);
+  --nx-color-overlay: rgba(0, 0, 0, 0.56);
+  --nx-color-overlay-hover: rgba(246, 246, 248, 0.06);
+  --nx-color-overlay-pressed: rgba(246, 246, 248, 0.10);
+  --nx-color-tint-hover: var(--nx-surface);
+  --nx-color-tint-brand-hover: rgba(187, 187, 254, 0.10);
+  --nx-color-shadow: rgba(0, 0, 0, 0.30);
+  --nx-color-skeleton: var(--nx-neutral-dk-25);
+  --nx-color-track: var(--nx-neutral-dk-25);
+  --nx-color-background-purple: var(--nx-purple-deep);
+  --nx-color-background-gray: var(--nx-neutral-dk-25);
+  --nx-color-border-purple: var(--nx-purple-35);
+  --nx-color-border-gray: var(--nx-neutral-dk-35);
+  --nx-color-icon-purple: var(--nx-lavender);
+  --nx-color-icon-gray: var(--nx-neutral-dk-75);
+  --nx-color-text-purple: var(--nx-lavender);
+  --nx-color-text-gray: var(--nx-neutral-dk-75);
+  --nx-shadow-low: 0 1px 2px rgba(0, 0, 0, 0.30), 0 2px 8px rgba(0, 0, 0, 0.30), inset 0 0 0 1px rgba(246, 246, 248, 0.06);
+  --nx-shadow-med: 0 2px 4px rgba(0, 0, 0, 0.35), 0 8px 20px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(246, 246, 248, 0.08);
+  --nx-shadow-high: 0 4px 8px rgba(0, 0, 0, 0.45), 0 16px 40px rgba(0, 0, 0, 0.60), inset 0 0 0 1px rgba(246, 246, 248, 0.10);
+  --nx-shadow-inset-hover: inset 0 0 0 2px rgba(246, 246, 248, 0.20);
+  --nx-shadow-inset-selected: inset 0 0 0 2px rgba(187, 187, 254, 0.50);
+  --nx-shadow-inset-success: inset 0 0 0 2px rgba(110, 189, 166, 0.30);
+  --nx-shadow-inset-warning: inset 0 0 0 2px rgba(244, 164, 104, 0.30);
+  --nx-shadow-inset-error: inset 0 0 0 2px rgba(247, 134, 118, 0.30);
+  --nx-focus-outline-color: var(--nx-color-border-accent);
+  --nx-line: var(--nx-color-border);
+}
+
+/* ── 深色（跟随系统） ── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --nx-color-background-body: var(--nx-ink);
+    --nx-color-background-surface: var(--nx-ink);
+    --nx-color-background-card: var(--nx-neutral-dk-20);
+    --nx-color-background-popover: var(--nx-neutral-dk-25);
+    --nx-color-background-muted: var(--nx-neutral-dk-10);
+    --nx-color-background-inverted: var(--nx-surface);
+    --nx-color-background-brand: var(--nx-purple-deep);
+    --nx-color-text-primary: var(--nx-surface);
+    --nx-color-text-secondary: var(--nx-neutral-dk-75);
+    --nx-color-text-disabled: var(--nx-neutral-dk-50);
+    --nx-color-text-accent: var(--nx-lavender);
+    --nx-color-icon-primary: var(--nx-surface);
+    --nx-color-icon-secondary: var(--nx-neutral-dk-75);
+    --nx-color-icon-disabled: var(--nx-neutral-dk-50);
+    --nx-color-icon-accent: var(--nx-lavender);
+    --nx-color-border: rgba(246, 246, 248, 0.10);
+    --nx-color-border-emphasized: var(--nx-neutral-dk-60);
+    --nx-color-border-accent: var(--nx-lavender);
+    --nx-color-accent-muted: var(--nx-purple-deep);
+    --nx-color-on-accent-muted: var(--nx-lavender);
+    --nx-color-accent-hover: var(--nx-purple-dk-40);
+    --nx-color-accent-pressed: var(--nx-purple-dk-35);
+    --nx-color-accent-muted-hover: var(--nx-purple-dk-25);
+    --nx-color-highlight-pressed: var(--nx-coral-dk-55);
+    --nx-color-highlight-muted: #4D302C;
+    --nx-color-on-highlight-muted: var(--nx-surface);
+    --nx-color-success: var(--nx-success-dk-70);
+    --nx-color-on-success: var(--nx-ink);
+    --nx-color-success-muted: #2C3F3A;
+    --nx-color-on-success-muted: var(--nx-success-dk-80);
+    --nx-color-text-success: var(--nx-success-dk-75);
+    --nx-color-icon-success: var(--nx-success-dk-75);
+    --nx-color-border-success: var(--nx-success-dk-75);
+    --nx-color-warning: var(--nx-warning-dk-70);
+    --nx-color-on-warning: var(--nx-ink);
+    --nx-color-warning-muted: #483628;
+    --nx-color-on-warning-muted: var(--nx-warning-dk-80);
+    --nx-color-text-warning: var(--nx-warning-dk-75);
+    --nx-color-icon-warning: var(--nx-warning-dk-75);
+    --nx-color-border-warning: var(--nx-warning-dk-75);
+    --nx-color-error: #E8705F;
+    --nx-color-on-error: var(--nx-ink);
+    --nx-color-error-muted: #4B3330;
+    --nx-color-on-error-muted: var(--nx-error-dk-80);
+    --nx-color-text-error: var(--nx-error-dk-70);
+    --nx-color-icon-error: var(--nx-error-dk-70);
+    --nx-color-border-error: var(--nx-error-dk-75);
+    --nx-color-info-muted: var(--nx-purple-deep);
+    --nx-color-on-info-muted: var(--nx-lavender);
+    --nx-color-text-info: var(--nx-lavender);
+    --nx-color-icon-info: var(--nx-lavender);
+    --nx-color-border-info: var(--nx-lavender);
+    --nx-color-neutral: rgba(246, 246, 248, 0.12);
+    --nx-color-overlay: rgba(0, 0, 0, 0.56);
+    --nx-color-overlay-hover: rgba(246, 246, 248, 0.06);
+    --nx-color-overlay-pressed: rgba(246, 246, 248, 0.10);
+    --nx-color-tint-hover: var(--nx-surface);
+    --nx-color-tint-brand-hover: rgba(187, 187, 254, 0.10);
+    --nx-color-shadow: rgba(0, 0, 0, 0.30);
+    --nx-color-skeleton: var(--nx-neutral-dk-25);
+    --nx-color-track: var(--nx-neutral-dk-25);
+    --nx-color-background-purple: var(--nx-purple-deep);
+    --nx-color-background-gray: var(--nx-neutral-dk-25);
+    --nx-color-border-purple: var(--nx-purple-35);
+    --nx-color-border-gray: var(--nx-neutral-dk-35);
+    --nx-color-icon-purple: var(--nx-lavender);
+    --nx-color-icon-gray: var(--nx-neutral-dk-75);
+    --nx-color-text-purple: var(--nx-lavender);
+    --nx-color-text-gray: var(--nx-neutral-dk-75);
+    --nx-shadow-low: 0 1px 2px rgba(0, 0, 0, 0.30), 0 2px 8px rgba(0, 0, 0, 0.30), inset 0 0 0 1px rgba(246, 246, 248, 0.06);
+    --nx-shadow-med: 0 2px 4px rgba(0, 0, 0, 0.35), 0 8px 20px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(246, 246, 248, 0.08);
+    --nx-shadow-high: 0 4px 8px rgba(0, 0, 0, 0.45), 0 16px 40px rgba(0, 0, 0, 0.60), inset 0 0 0 1px rgba(246, 246, 248, 0.10);
+    --nx-shadow-inset-hover: inset 0 0 0 2px rgba(246, 246, 248, 0.20);
+    --nx-shadow-inset-selected: inset 0 0 0 2px rgba(187, 187, 254, 0.50);
+    --nx-shadow-inset-success: inset 0 0 0 2px rgba(110, 189, 166, 0.30);
+    --nx-shadow-inset-warning: inset 0 0 0 2px rgba(244, 164, 104, 0.30);
+    --nx-shadow-inset-error: inset 0 0 0 2px rgba(247, 134, 118, 0.30);
+    --nx-focus-outline-color: var(--nx-color-border-accent);
+    --nx-line: var(--nx-color-border);
+  }
+}
+
+/* ── 显式浅色（嵌套在深色区域里时用） ── */
+[data-theme="light"] {
+  color-scheme: light;
+  --nx-color-background-body: var(--nx-surface);
+  --nx-color-background-surface: var(--nx-white);
+  --nx-color-background-card: var(--nx-white);
+  --nx-color-background-popover: var(--nx-white);
+  --nx-color-background-muted: var(--nx-surface);
+  --nx-color-background-inverted: var(--nx-ink);
+  --nx-color-background-brand: var(--nx-mist);
+  --nx-color-text-primary: var(--nx-ink);
+  --nx-color-text-secondary: var(--nx-gray);
+  --nx-color-text-disabled: var(--nx-neutral-65);
+  --nx-color-text-accent: var(--nx-purple);
+  --nx-color-icon-primary: var(--nx-ink);
+  --nx-color-icon-secondary: var(--nx-gray);
+  --nx-color-icon-disabled: var(--nx-neutral-65);
+  --nx-color-icon-accent: var(--nx-purple);
+  --nx-color-border: var(--nx-neutral-90);
+  --nx-color-border-emphasized: var(--nx-neutral-55);
+  --nx-color-border-accent: var(--nx-purple);
+  --nx-color-accent-muted: var(--nx-mist);
+  --nx-color-on-accent-muted: var(--nx-purple-deep);
+  --nx-color-accent-hover: var(--nx-purple-40);
+  --nx-color-accent-pressed: var(--nx-purple-35);
+  --nx-color-accent-muted-hover: var(--nx-purple-90);
+  --nx-color-highlight-pressed: var(--nx-coral-55);
+  --nx-color-highlight-muted: var(--nx-coral-95);
+  --nx-color-on-highlight-muted: var(--nx-ink);
+  --nx-color-success: var(--nx-success);
+  --nx-color-on-success: var(--nx-white);
+  --nx-color-success-muted: var(--nx-success-95);
+  --nx-color-on-success-muted: var(--nx-success-30);
+  --nx-color-text-success: var(--nx-success);
+  --nx-color-icon-success: var(--nx-success);
+  --nx-color-border-success: var(--nx-success);
+  --nx-color-warning: var(--nx-warning);
+  --nx-color-on-warning: var(--nx-white);
+  --nx-color-warning-muted: var(--nx-warning-95);
+  --nx-color-on-warning-muted: var(--nx-warning-30);
+  --nx-color-text-warning: var(--nx-warning-40);
+  --nx-color-icon-warning: var(--nx-warning-40);
+  --nx-color-border-warning: var(--nx-warning-40);
+  --nx-color-error: var(--nx-danger);
+  --nx-color-on-error: var(--nx-white);
+  --nx-color-error-muted: var(--nx-error-95);
+  --nx-color-on-error-muted: var(--nx-error-30);
+  --nx-color-text-error: var(--nx-danger);
+  --nx-color-icon-error: var(--nx-danger);
+  --nx-color-border-error: var(--nx-danger);
+  --nx-color-info-muted: var(--nx-mist);
+  --nx-color-on-info-muted: var(--nx-purple-deep);
+  --nx-color-text-info: var(--nx-purple);
+  --nx-color-icon-info: var(--nx-purple);
+  --nx-color-border-info: var(--nx-purple);
+  --nx-color-neutral: rgba(38, 38, 38, 0.06);
+  --nx-color-overlay: rgba(38, 38, 38, 0.40);
+  --nx-color-overlay-hover: rgba(38, 38, 38, 0.05);
+  --nx-color-overlay-pressed: rgba(38, 38, 38, 0.09);
+  --nx-color-tint-hover: var(--nx-ink);
+  --nx-color-tint-brand-hover: rgba(104, 87, 231, 0.08);
+  --nx-color-shadow: rgba(60, 35, 124, 0.10);
+  --nx-color-skeleton: var(--nx-neutral-90);
+  --nx-color-track: var(--nx-neutral-90);
+  --nx-color-background-purple: var(--nx-mist);
+  --nx-color-background-gray: var(--nx-neutral-90);
+  --nx-color-border-purple: var(--nx-lavender);
+  --nx-color-border-gray: var(--nx-neutral-80);
+  --nx-color-icon-purple: var(--nx-purple);
+  --nx-color-icon-gray: var(--nx-gray);
+  --nx-color-text-purple: var(--nx-purple);
+  --nx-color-text-gray: var(--nx-gray);
+  --nx-shadow-low: 0 1px 2px rgba(38, 38, 38, 0.04), 0 2px 8px rgba(60, 35, 124, 0.05);
+  --nx-shadow-med: 0 2px 4px rgba(38, 38, 38, 0.04), 0 8px 20px rgba(60, 35, 124, 0.07);
+  --nx-shadow-high: 0 4px 8px rgba(38, 38, 38, 0.05), 0 16px 40px rgba(60, 35, 124, 0.10);
+  --nx-shadow-inset-hover: inset 0 0 0 2px rgba(38, 38, 38, 0.15);
+  --nx-shadow-inset-selected: inset 0 0 0 2px rgba(104, 87, 231, 0.50);
+  --nx-shadow-inset-success: inset 0 0 0 2px rgba(8, 117, 95, 0.30);
+  --nx-shadow-inset-warning: inset 0 0 0 2px rgba(180, 95, 6, 0.30);
+  --nx-shadow-inset-error: inset 0 0 0 2px rgba(180, 35, 24, 0.30);
+  --nx-focus-outline-color: var(--nx-color-border-accent);
+  --nx-line: var(--nx-color-border);
+}
+
+/* ── 减少动态效果 ── */
+@media (prefers-reduced-motion: reduce) {
+  :root { --nx-duration-medium: var(--nx-duration-fast); --nx-duration-slow: var(--nx-duration-fast); }
 }
